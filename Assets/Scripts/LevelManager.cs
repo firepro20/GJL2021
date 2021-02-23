@@ -22,6 +22,7 @@ public class LevelManager : Singleton<LevelManager>
     /// <summary>
     /// Parses through a level set text file
     /// http://ianparberry.com/research/sokoban/
+    /// http://sokobano.de/wiki/index.php?title=Level_format
     /// </summary>
     void LoadFromFile()
     {

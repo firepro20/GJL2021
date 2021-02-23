@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    string fileName = "levelset1.txt";
+    //string fileName = "levelset1.txt";
+    //List<string[]> levels = new List<string[]>();
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadFromFile();
+        //LoadFromFile();
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class LevelManager : Singleton<LevelManager>
         
     }
 
+    /*
     /// <summary>
     /// Parses through a level set text file
     /// http://ianparberry.com/research/sokoban/
@@ -33,7 +35,14 @@ public class LevelManager : Singleton<LevelManager>
         string[] lines = fileContents.Split("\n"[0]);
         foreach (string line in lines)
         {
-            Debug.Log(line);
+            string[] characters = line.Split(" "[0]);
+            if (line.Contains(";"))
+            {
+                
+            }
+
+         //   Debug.Log(line);
         }
     }
+    */
 }

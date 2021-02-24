@@ -5,14 +5,19 @@ using UnityEngine.Tilemaps;
 
 public enum Power
 {
-    ADD,
-    MULTIPLY,
-    POWER,
-    DIVIDE
+    ADD, // +3
+    MULTIPLY, // x2
+    POWER, // ^2
+    DIVIDE // /4
 }
 
 public class Player : MonoBehaviour
 {
+    // defines function and parameters if required
+    public delegate void OnPowerUpdateHandler(Power p, bool state);
+    // event to subsbribe to
+    public event OnPowerUpdateHandler OnPowerUpdated;
+
     // Movement
     Vector3 movement;
     Vector3 moveToPosition;
@@ -24,17 +29,27 @@ public class Player : MonoBehaviour
     public Tilemap wallObstacles;
 
     // Character Power
-    int[] enabledPowers = { 0, 0, 0, 0 };
+    int[] characterPowers = { 0, 0, 0, 0 };
     Power myPower = Power.ADD;
 
     // Snap Tile Correction
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
 
+    private void OnEnable()
+    {
+        OnPowerUpdated += UpdatePower;
+    }
+
+    private void OnDisable()
+    {
+        OnPowerUpdated -= UpdatePower;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         transform.position = spawnPoint.position;
-        UpdatePower(Power.ADD, true);
+        OnPowerUpdated?.Invoke(Power.ADD, true);
     }
 
     // Update is called once per frame
@@ -43,6 +58,9 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.GetGameState() == GameState.Playing)
         {
             UpdateMovement();
+            SwitchCharacter();
+            SwitchSelectedBox();
+            //Interact(); // probably wont need this as I will only interact with targeted box, call the operation of this box when I calculate it here and update value sent to thanik script
         }
     }
 
@@ -86,6 +104,32 @@ public class Player : MonoBehaviour
         isWalking = false;
     }
 
+    void SwitchCharacter()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
+    }
+
+    void SwitchSelectedBox()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -100,11 +144,11 @@ public class Player : MonoBehaviour
     void UpdatePower(Power p, bool state)
     {
         int s = state ? 1 : 0;
-        enabledPowers[(int)p] = s;
+        characterPowers[(int)p] = s;
     }
 
     public int[] GetAllowedPowers()
     {
-        return enabledPowers;
+        return characterPowers;
     }
 }

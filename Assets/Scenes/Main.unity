@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1657876139}
-  moveSpeed: 1.2
+  moveSpeed: 3
   wallObstacles: {fileID: 352321123}
 --- !u!61 &41146639
 BoxCollider2D:

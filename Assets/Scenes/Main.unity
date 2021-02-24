@@ -302,6 +302,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8301802399134761085, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
+      propertyPath: m_Name
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301802399134761085, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8301802400790802054, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
       propertyPath: m_UsedByComposite
       value: 1
@@ -309,6 +317,14 @@ PrefabInstance:
     - target: {fileID: 8301802400790802055, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798489821426996511, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798489821426996511, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4d1734d8899794a8c44ca042487a68, type: 3}
@@ -426,6 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315f2a9b6f661f741af92e428ca46225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_: {fileID: 0}
+  uiController: {fileID: 0}
 --- !u!4 &1139703274
 Transform:
   m_ObjectHideFlags: 0

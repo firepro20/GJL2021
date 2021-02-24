@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public enum Power
 {
+    MOVE,
     ADD, // +3
     MULTIPLY, // x2
     POWER, // ^2
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
 
     // Character Power
     int[] characterPowers = { 0, 0, 0, 0 };
-    Power myPower = Power.ADD;
+    Power myPower = Power.MOVE;
     Vector3 boxPositionCheck;
 
     // Snap Tile Correction
@@ -62,15 +63,15 @@ public class Player : MonoBehaviour
         {
             UpdateMovement();
             SwitchCharacter();
-            OperateOnBox(); // use similar functionality for moving to check if there are boxes in four directions with arrow keys
+            //OperateOnBox(); // use similar functionality for moving to check if there are boxes in four directions with arrow keys
         }
     }
 
     void UpdateMovement()
     {
         // Using Raw for unfiltered input, no smoothing applied
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Mathf.Round(Input.GetAxisRaw("Horizontal"));
+        movement.y = Mathf.Round(Input.GetAxisRaw("Vertical"));
         
         if (!isWalking && movement != oldMovement)
         {
@@ -92,10 +93,8 @@ public class Player : MonoBehaviour
                     if (hit.collider.CompareTag("Box"))
                     {
                         Debug.Log("[Player] Found box next to player", hit.collider.gameObject);
-                        if (hit.collider.GetComponent<NumberBox>().MoveBox(movement, wallObstacles))
-                        {
-                            StartCoroutine(Move(moveToPosition));
-                        }
+                        NumberBox box = hit.collider.GetComponent<NumberBox>();
+                        OperateOnBox(box);
                     }
                     else if (hit.collider.CompareTag("Door"))
                     {
@@ -143,32 +142,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OperateOnBox()
+    void OperateOnBox(NumberBox box)
     {
-        boxPositionCheck = transform.position;
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        switch (myPower)
         {
-            boxPositionCheck = transform.position + new Vector3(0, 1, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(0, -1, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(-1, 0, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(1, 0, 0);
-        }
-
-        // check for box
-        RaycastHit2D hit = Physics2D.Raycast(boxPositionCheck, Vector2.up, 0f);
-        if (hit.collider != null && hit.collider.CompareTag("Box"))
-        {
-            NumberBox current = hit.collider.GetComponent<NumberBox>();
-            current.SetNumber(99);
+            case Power.MOVE:
+                // check if the box is stuck or not then allow the player to move
+                if (box.MoveBox(movement, wallObstacles))
+                {
+                    StartCoroutine(Move(moveToPosition));
+                }
+                break;
+            case Power.ADD:
+                box.SetNumberValue(box.GetNumberValue() + 2);
+                break;
         }
     }
 

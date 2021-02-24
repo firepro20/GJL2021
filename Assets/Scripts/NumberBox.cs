@@ -50,7 +50,7 @@ public class NumberBox : MonoBehaviour
         UpdateUI();
     }
 
-    public void SetNumber(int newValue)
+    public void SetNumberValue(int newValue)
     {
         if (operationsCount < maxOperations)
         {

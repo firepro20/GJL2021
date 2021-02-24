@@ -32,11 +32,8 @@ public class Door : MonoBehaviour
         sprRenderer.sprite = doorSprites[0];
     }
 
-    public void Open()
+    public bool GetUnlocked()
     {
-        if (unlocked)
-        {
-
-        }
+        return unlocked;
     }
 }

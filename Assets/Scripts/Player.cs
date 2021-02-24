@@ -47,13 +47,13 @@ public class Player : MonoBehaviour
     }
 
     void UpdateMovement()
-    { 
+    {
         if (!isWalking)
         {
             // Using Raw for unfiltered input, no smoothing applied
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            
+
             //Avoid diagonal movement
             if (movement.x != 0)
             {
@@ -65,16 +65,43 @@ public class Player : MonoBehaviour
 
             if (wallObstacles.GetTile(wallMapTile) == null)
             {
-                // update anim sprites
-                StartCoroutine(Move(moveToPosition));
+                // check for door and box
+                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("Box"))
+                    {
+                        Debug.Log("[Player] Found box next to player", hit.collider.gameObject);
+                        if (hit.collider.GetComponent<NumberBox>().MoveBox(movement, wallObstacles))
+                        {
+                            StartCoroutine(Move(moveToPosition));
+                        }
+                    }
+                    else if (hit.collider.CompareTag("Door"))
+                    {
+                        Debug.Log("[Player] Found door next to player", hit.collider.gameObject);
+                        if (hit.collider.GetComponent<Door>().GetUnlocked())
+                        {
+                            StartCoroutine(Move(moveToPosition));
+                        }
+                    }
+                    else if (hit.collider.CompareTag("Slot"))
+                    {
+                        StartCoroutine(Move(moveToPosition));
+                    }
+                }
+                else
+                {
+                    // update anim sprites
+                    StartCoroutine(Move(moveToPosition));
+                }
             }
         }
     }
 
     IEnumerator Move(Vector3 newPos)
-    {
+    { 
         isWalking = true;
-
         while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);

@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class NumberBox : MonoBehaviour
 {
     public int initialNumberValue;
     public int maxOperations = 5;
+    public float moveSpeed = 3f;
     private int numberValue;
     private int operationsCount = 0;
+    bool isMoving = false;
 
     public TMP_Text numberText;
     public Sprite[] operationIndicatorSprites;
@@ -62,5 +65,50 @@ public class NumberBox : MonoBehaviour
     public int GetNumberValue()
     {
         return numberValue;
+    }
+
+    public bool MoveBox(Vector3 direction, Tilemap wallObstacles)
+    {
+        if (!isMoving)
+        {
+            Vector3 moveToPosition = transform.position + direction;
+            Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition);
+
+            if (wallObstacles.GetTile(wallMapTile) == null)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
+                if (hit.collider != null && hit.collider.CompareTag("Door"))
+                {
+                    return false;
+                }
+                else
+                {
+                    StartCoroutine(Move(moveToPosition));
+                    return true;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    IEnumerator Move(Vector3 newPos)
+    {
+        isMoving = true;
+        while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = newPos;
+        isMoving = false;
     }
 }

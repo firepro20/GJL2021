@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                             StartCoroutine(Move(moveToPosition));
                         }
                     }
-                    else if (hit.collider.CompareTag("Slot"))
+                    else if (hit.collider.CompareTag("Slot") && !hit.collider.GetComponent<BoxSlot>().GetBoxOnTop())
                     {
                         StartCoroutine(Move(moveToPosition));
                     }

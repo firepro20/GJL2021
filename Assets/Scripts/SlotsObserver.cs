@@ -29,14 +29,14 @@ public class SlotsObserver : MonoBehaviour
         // also check if all slots are occupied
         if (boxSlots.Length > 0)
         {
-            if (boxSlots[0].boxOnTop)
+            if (boxSlots[0].GetBoxOnTop())
             {
-                int result = boxSlots[0].boxOnTop.number;
+                int result = boxSlots[0].GetBoxOnTop().GetNumberValue();
                 for (int i = 1; i < boxSlots.Length; i++)
                 {
-                    if (boxSlots[i].boxOnTop)
+                    if (boxSlots[i].GetBoxOnTop())
                     {
-                        result -= boxSlots[i].boxOnTop.number;
+                        result -= boxSlots[i].GetBoxOnTop().GetNumberValue();
                     }
                     else
                     {

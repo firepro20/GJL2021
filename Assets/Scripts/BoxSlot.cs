@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxSlot : MonoBehaviour
 {
-    public NumberBox boxOnTop;
+    private NumberBox boxOnTop;
 
     private List<SlotsObserver> observers = new List<SlotsObserver>();
     void Start()
@@ -24,7 +24,7 @@ public class BoxSlot : MonoBehaviour
         {
 
             boxOnTop = col.gameObject.GetComponent<NumberBox>();
-            Debug.Log("[BoxSlot] Got box with value: " + boxOnTop.number, this);
+            Debug.Log("[BoxSlot] Got box with value: " + boxOnTop.GetNumberValue(), this);
             foreach (var slotsObserver in observers)
             {
                 slotsObserver.CalculateResult();
@@ -48,5 +48,10 @@ public class BoxSlot : MonoBehaviour
     public void AddObserver(SlotsObserver observer)
     {
         observers.Add(observer);
+    }
+
+    public NumberBox GetBoxOnTop()
+    {
+        return boxOnTop;
     }
 }

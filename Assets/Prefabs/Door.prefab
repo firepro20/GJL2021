@@ -141,7 +141,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  boxSlots:
-  - {fileID: 0}
-  - {fileID: 0}
+  boxSlots: []
   expectedResult: 15

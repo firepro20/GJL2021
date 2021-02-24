@@ -28,7 +28,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.Instance.GetGameState() == GameState.Playing)
+        {
+            UpdateMovement();
+        }
+    }
+
+    void UpdateMovement()
+    {
+
     }
 
     /// <summary>
@@ -42,10 +50,9 @@ public class Player : MonoBehaviour
         enabledPowers[(int)p] = s;
     }
 
-    int[] GetAllowedPowers()
+    public int[] GetAllowedPowers()
     {
         return enabledPowers;
     }
 
-    // some invoke stuff like last project to be implemented
 }

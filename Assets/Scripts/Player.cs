@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
 
     // Movement
     Vector3 movement;
+    private Vector3 oldMovement;
     Vector3 moveToPosition;
     bool isWalking = false;
     public Transform spawnPoint;
@@ -66,12 +68,12 @@ public class Player : MonoBehaviour
 
     void UpdateMovement()
     {
-        if (!isWalking)
+        // Using Raw for unfiltered input, no smoothing applied
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        
+        if (!isWalking && movement != oldMovement)
         {
-            // Using Raw for unfiltered input, no smoothing applied
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-
             //Avoid diagonal movement
             if (movement.x != 0)
             {
@@ -114,6 +116,8 @@ public class Player : MonoBehaviour
                     StartCoroutine(Move(moveToPosition));
                 }
             }
+
+            oldMovement = movement;
         }
     }
 

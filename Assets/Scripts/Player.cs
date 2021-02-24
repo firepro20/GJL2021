@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     // Character Power
     int[] characterPowers = { 0, 0, 0, 0 };
     Power myPower = Power.ADD;
+    Vector3 boxPositionCheck;
 
     // Snap Tile Correction
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
@@ -59,8 +60,7 @@ public class Player : MonoBehaviour
         {
             UpdateMovement();
             SwitchCharacter();
-            SwitchSelectedBox();
-            //Interact(); // probably wont need this as I will only interact with targeted box, call the operation of this box when I calculate it here and update value sent to thanik script
+            OperateOnBox(); // use similar functionality for moving to check if there are boxes in four directions with arrow keys
         }
     }
 
@@ -139,28 +139,43 @@ public class Player : MonoBehaviour
         }
     }
 
-    void SwitchSelectedBox()
+    void OperateOnBox()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        boxPositionCheck = transform.position;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // 
+            boxPositionCheck = transform.position + new Vector3(0, 1, 0);
         }
-    }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            boxPositionCheck = transform.position + new Vector3(0, -1, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            boxPositionCheck = transform.position + new Vector3(-1, 0, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            boxPositionCheck = transform.position + new Vector3(1, 0, 0);
+        }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
+        // check for box
+        RaycastHit2D hit = Physics2D.Raycast(boxPositionCheck, Vector2.up, 0f);
+        if (hit.collider != null && hit.collider.CompareTag("Box"))
+        {
+            NumberBox current = hit.collider.GetComponent<NumberBox>();
+            current.SetNumber(99);
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(moveToPosition, 0.2f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(moveToPosition, Vector2.up);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(boxPositionCheck, Vector2.up);
     }
 
     /// <summary>

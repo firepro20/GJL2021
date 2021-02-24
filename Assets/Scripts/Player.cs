@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public enum Power
 {
@@ -12,6 +13,15 @@ public enum Power
 
 public class Player : MonoBehaviour
 {
+    // Movement
+    Vector3 movement;
+    Vector3 moveToPosition;
+    bool isWalking = false;
+    public float moveSpeed = 1.5f;
+
+    // Wall Tilemap
+    public Tilemap wallObstacles;
+
     // Character Power
     int[] enabledPowers = { 0, 0, 0, 0 };
     Power myPower = Power.ADD;
@@ -36,7 +46,44 @@ public class Player : MonoBehaviour
 
     void UpdateMovement()
     {
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
 
+        //Avoid diagonal movement
+        if (movement.x != 0)
+        {
+            movement.y = 0;
+        }
+
+        moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); //+-1
+        Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition - new Vector3(0, 0.5f, 0));
+
+        if (wallObstacles.GetTile(wallMapTile) == null)
+        {
+            // update anim sprites
+            StartCoroutine(Move(moveToPosition));
+        }
+
+    }
+
+    IEnumerator Move(Vector3 newPos)
+    {
+        isWalking = true;
+
+        while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = newPos;
+
+        isWalking = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(moveToPosition - new Vector3(0,0.5f,0), 0.2f);
     }
 
     /// <summary>
@@ -54,5 +101,4 @@ public class Player : MonoBehaviour
     {
         return enabledPowers;
     }
-
 }

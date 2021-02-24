@@ -21,12 +21,12 @@ public class GameManager : Singleton<GameManager>
 
     private void OnEnable()
     {
-        OnPauseCalled += uiController.ShowPauseMenu;
+        //OnPauseCalled += uiController.ShowPauseMenu;
     }
 
     private void OnDisable()
     {
-        OnPauseCalled -= uiController.ShowPauseMenu;
+        //OnPauseCalled -= uiController.ShowPauseMenu;
     }
 
     // Update is called once per frame

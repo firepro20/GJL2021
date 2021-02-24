@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     Vector3 movement;
     Vector3 moveToPosition;
     bool isWalking = false;
+    public Transform spawnPoint;
     public float moveSpeed = 1.5f;
 
     // Wall Tilemap
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = spawnPoint.position;
         UpdatePower(Power.ADD, true);
     }
 
@@ -45,25 +47,27 @@ public class Player : MonoBehaviour
     }
 
     void UpdateMovement()
-    {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
-
-        //Avoid diagonal movement
-        if (movement.x != 0)
+    { 
+        if (!isWalking)
         {
-            movement.y = 0;
+            movement.x = Input.GetAxis("Horizontal");
+            movement.y = Input.GetAxis("Vertical");
+
+            //Avoid diagonal movement
+            if (movement.x != 0)
+            {
+                movement.y = 0;
+            }
+
+            moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); //+-1
+            Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition - new Vector3(0, 0.5f, 0));
+
+            if (wallObstacles.GetTile(wallMapTile) == null)
+            {
+                // update anim sprites
+                StartCoroutine(Move(moveToPosition));
+            }
         }
-
-        moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); //+-1
-        Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition - new Vector3(0, 0.5f, 0));
-
-        if (wallObstacles.GetTile(wallMapTile) == null)
-        {
-            // update anim sprites
-            StartCoroutine(Move(moveToPosition));
-        }
-
     }
 
     IEnumerator Move(Vector3 newPos)

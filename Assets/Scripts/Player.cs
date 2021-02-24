@@ -10,7 +10,8 @@ public enum Power
     ADD, // +3
     MULTIPLY, // x2
     POWER, // ^2
-    DIVIDE // /4
+    DIVIDE, // /4
+    RESET
 }
 
 public class Player : MonoBehaviour
@@ -155,6 +156,9 @@ public class Player : MonoBehaviour
                 break;
             case Power.ADD:
                 box.SetNumberValue(box.GetNumberValue() + 2);
+                break;
+            case Power.RESET:
+                box.ResetOperations();
                 break;
         }
     }

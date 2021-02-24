@@ -32,10 +32,10 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        CheckInterruptInput();
     }
 
-    void CheckInput()
+    void CheckInterruptInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && gState == GameState.Playing)
         {

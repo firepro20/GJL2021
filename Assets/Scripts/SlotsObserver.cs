@@ -31,12 +31,12 @@ public class SlotsObserver : MonoBehaviour
         {
             if (boxSlots[0].GetBoxOnTop())
             {
-                int result = boxSlots[0].GetBoxOnTop().number;
+                int result = boxSlots[0].GetBoxOnTop().GetNumberValue();
                 for (int i = 1; i < boxSlots.Length; i++)
                 {
                     if (boxSlots[i].GetBoxOnTop())
                     {
-                        result -= boxSlots[i].GetBoxOnTop().number;
+                        result -= boxSlots[i].GetBoxOnTop().GetNumberValue();
                     }
                     else
                     {

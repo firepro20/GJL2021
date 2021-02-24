@@ -24,7 +24,7 @@ public class BoxSlot : MonoBehaviour
         {
 
             boxOnTop = col.gameObject.GetComponent<NumberBox>();
-            Debug.Log("[BoxSlot] Got box with value: " + boxOnTop.number, this);
+            Debug.Log("[BoxSlot] Got box with value: " + boxOnTop.GetNumberValue(), this);
             foreach (var slotsObserver in observers)
             {
                 slotsObserver.CalculateResult();

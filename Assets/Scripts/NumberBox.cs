@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NumberBox : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NumberBox : MonoBehaviour
     private int operationsCount = 0;
 
     public TMP_Text numberText;
+    public Sprite[] operationIndicatorSprites;
+    public Image[] operationIndicators;
     void Start()
     {
         numberText.text = numberValue.ToString();
@@ -22,16 +25,27 @@ public class NumberBox : MonoBehaviour
         
     }
 
-    public void updateNumber(int number)
+    public void UpdateUI()
     {
-        this.numberValue = number;
-        numberText.text = number.ToString();
+        numberText.text = numberValue.ToString();
+        for (int i = 0; i < maxOperations; i++)
+        {
+            if (i < operationsCount)
+            {
+                operationIndicators[i].sprite = operationIndicatorSprites[1];
+            }
+            else
+            {
+                operationIndicators[i].sprite = operationIndicatorSprites[0];
+            }
+        }
     }
 
     public void ResetOperations()
     {
         operationsCount = 0;
         numberValue = initialNumberValue;
+        UpdateUI();
     }
 
     public void SetNumber(int newValue)
@@ -41,6 +55,8 @@ public class NumberBox : MonoBehaviour
             numberValue = newValue;
             operationsCount++;
         }
+
+        UpdateUI();
     }
 
     public int GetNumberValue()

@@ -12,7 +12,6 @@ public class NumberBox : MonoBehaviour
     public float moveSpeed = 3f;
     private int numberValue;
     private int operationsCount = 0;
-    bool isMoving = false;
 
     public TMP_Text numberText;
     public Sprite[] operationIndicatorSprites;
@@ -69,29 +68,23 @@ public class NumberBox : MonoBehaviour
 
     public bool MoveBox(Vector3 direction, Tilemap wallObstacles)
     {
-        if (!isMoving)
+
+        Vector3 moveToPosition = transform.position + direction;
+        Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition);
+
+        if (wallObstacles.GetTile(wallMapTile) == null)
         {
-            Vector3 moveToPosition = transform.position + direction;
-            Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition);
-
-            if (wallObstacles.GetTile(wallMapTile) == null)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
-                if (hit.collider != null && hit.collider.CompareTag("Door"))
-                {
-                    return false;
-                }
-                else
-                {
-                    StartCoroutine(Move(moveToPosition));
-                    return true;
-                }
-
-            }
-            else
+            RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
+            if (hit.collider != null && hit.collider.CompareTag("Door"))
             {
                 return false;
             }
+            else
+            {
+                StartCoroutine(Move(moveToPosition));
+                return true;
+            }
+
         }
         else
         {
@@ -101,7 +94,6 @@ public class NumberBox : MonoBehaviour
 
     IEnumerator Move(Vector3 newPos)
     {
-        isMoving = true;
         while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
@@ -109,6 +101,5 @@ public class NumberBox : MonoBehaviour
         }
 
         transform.position = newPos;
-        isMoving = false;
     }
 }

@@ -50,9 +50,10 @@ public class Player : MonoBehaviour
     { 
         if (!isWalking)
         {
-            movement.x = Input.GetAxis("Horizontal");
-            movement.y = Input.GetAxis("Vertical");
-
+            // Using Raw for unfiltered input, no smoothing applied
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            
             //Avoid diagonal movement
             if (movement.x != 0)
             {
@@ -60,7 +61,7 @@ public class Player : MonoBehaviour
             }
 
             moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); //+-1
-            Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition - new Vector3(0, 0.5f, 0));
+            Vector3Int wallMapTile = wallObstacles.WorldToCell(moveToPosition);
 
             if (wallObstacles.GetTile(wallMapTile) == null)
             {
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
         transform.position = newPos;
 
         isWalking = false;
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(moveToPosition - new Vector3(0,0.5f,0), 0.2f);
+        Gizmos.DrawSphere(moveToPosition, 0.2f);
     }
 
     /// <summary>

@@ -9,8 +9,9 @@ public enum Power
     MOVE,
     ADD, // +3
     MULTIPLY, // x2 
+    POWER, // ^2
     DIVIDE, // /4
-    RESETBOX 
+    RESET
 }
 
 public class Player : MonoBehaviour
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
     public Tilemap wallObstacles;
 
     // Character Power
-    int[] characterPowers = { 0, 0, 0, 0, 0 };
+    int[] characterPowers = { 0, 0, 0, 0, 0, 0 };
     Power myPower;
     Vector3 boxPositionCheck;
     int powerIndex = 0;
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
     {
         transform.position = spawnPoint.position;
         OnPowerUpdated?.Invoke(Power.MOVE, true);
+        OnPowerUpdated?.Invoke(Power.RESET, true);
     }
 
     // Update is called once per frame
@@ -155,63 +157,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OperateOnBox(NumberBox nb)
+    void OperateOnBox(NumberBox box)
     {
         switch (myPower)
         {
             case Power.MOVE:
-                if (nb.MoveBox(movement, wallObstacles))
-                {
-                    StartCoroutine(Move(moveToPosition));
-                }
-                break;
-            case Power.ADD:
-                int currentValue = nb.GetNumberValue();
-                nb.SetNumber(currentValue + 3);
-                break;
-            default:
-                break;
-        }
-
-        /*
-        boxPositionCheck = transform.position;
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            case Power.MOVE:
-                // check if the box is stuck or not then allow the player to move
                 if (box.MoveBox(movement, wallObstacles))
                 {
                     StartCoroutine(Move(moveToPosition));
                 }
                 break;
             case Power.ADD:
-                box.SetNumberValue(box.GetNumberValue() + 2);
+                int currentValue = box.GetNumberValue();
+                box.SetNumberValue(currentValue + 3);
                 break;
             case Power.RESET:
                 box.ResetOperations();
                 break;
+            default:
+                break;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(0, -1, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(-1, 0, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            boxPositionCheck = transform.position + new Vector3(1, 0, 0);
-        }
-
-        // check for box
-        RaycastHit2D hit = Physics2D.Raycast(boxPositionCheck, Vector2.up, 0f);
-        if (hit.collider != null && hit.collider.CompareTag("Box"))
-        {
-            NumberBox current = hit.collider.GetComponent<NumberBox>();
-            current.SetNumber(99);
-        }
-        */
     }
 
     private void OnDrawGizmos()

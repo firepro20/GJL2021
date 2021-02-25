@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     // character color
     public Color[] characterColors;
     private SpriteRenderer sprRenderer;
-
+    public RoomManager currentRoom;
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
@@ -95,7 +95,8 @@ public class Player : MonoBehaviour
             if (wallObstacles.GetTile(wallMapTile) == null)
             {
                 // check for door and box
-                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
+                LayerMask mask = LayerMask.GetMask("RoomObject");
+                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f, mask);
                 if (hit.collider != null)
                 {
                     if (hit.collider.CompareTag("Box"))
@@ -201,6 +202,10 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Reset"))
         {
             Debug.Log("Reset room");
+            if (currentRoom)
+            {
+                currentRoom.ResetRoom();
+            }
         }
     }
 

@@ -6,10 +6,11 @@ using UnityEngine.Tilemaps;
 
 public enum Power
 {
+    MOVE,
     ADD, // +3
-    MULTIPLY, // x2
-    POWER, // ^2
-    DIVIDE // /4
+    MULTIPLY, // x2 
+    DIVIDE, // /4
+    RESETBOX 
 }
 
 public class Player : MonoBehaviour
@@ -31,9 +32,10 @@ public class Player : MonoBehaviour
     public Tilemap wallObstacles;
 
     // Character Power
-    int[] characterPowers = { 0, 0, 0, 0 };
-    Power myPower = Power.ADD;
+    int[] characterPowers = { 0, 0, 0, 0, 0 };
+    Power myPower;
     Vector3 boxPositionCheck;
+    int powerIndex = 0;
 
     // Snap Tile Correction
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         transform.position = spawnPoint.position;
-        OnPowerUpdated?.Invoke(Power.ADD, true);
+        OnPowerUpdated?.Invoke(Power.MOVE, true);
     }
 
     // Update is called once per frame
@@ -61,8 +63,7 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.GetGameState() == GameState.Playing)
         {
             UpdateMovement();
-            SwitchCharacter();
-            OperateOnBox(); // use similar functionality for moving to check if there are boxes in four directions with arrow keys
+            SwitchPower();
         }
     }
 
@@ -91,11 +92,9 @@ public class Player : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Box"))
                     {
+                        NumberBox box = hit.collider.GetComponent<NumberBox>();
                         Debug.Log("[Player] Found box next to player", hit.collider.gameObject);
-                        if (hit.collider.GetComponent<NumberBox>().MoveBox(movement, wallObstacles))
-                        {
-                            StartCoroutine(Move(moveToPosition));
-                        }
+                        OperateOnBox(box);
                     }
                     else if (hit.collider.CompareTag("Door"))
                     {
@@ -135,16 +134,46 @@ public class Player : MonoBehaviour
         isWalking = false;
     }
 
-    void SwitchCharacter()
+    void SwitchPower()
     {
+        OnPowerUpdated?.Invoke(Power.ADD, true); // temporary for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            powerIndex++;
+            while (characterPowers[powerIndex] != 1)
+            {
+                powerIndex++;
+                if (powerIndex >= characterPowers.Length)
+                {
+                    powerIndex = 0;
+                }
+            }
+            
+            myPower = (Power)powerIndex;
+            Debug.Log("My power is - " + myPower);
 
         }
     }
 
-    void OperateOnBox()
+    void OperateOnBox(NumberBox nb)
     {
+        switch (myPower)
+        {
+            case Power.MOVE:
+                if (nb.MoveBox(movement, wallObstacles))
+                {
+                    StartCoroutine(Move(moveToPosition));
+                }
+                break;
+            case Power.ADD:
+                int currentValue = nb.GetNumberValue();
+                nb.SetNumber(currentValue + 3);
+                break;
+            default:
+                break;
+        }
+
+        /*
         boxPositionCheck = transform.position;
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -170,6 +199,7 @@ public class Player : MonoBehaviour
             NumberBox current = hit.collider.GetComponent<NumberBox>();
             current.SetNumber(99);
         }
+        */
     }
 
     private void OnDrawGizmos()

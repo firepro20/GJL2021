@@ -24,6 +24,7 @@ public class RoomManager : MonoBehaviour
     {
         foreach (KeyValuePair<NumberBox, Vector3> pair in numberBoxInitialPos)
         {
+            pair.Key.StopAllCoroutines();
             pair.Key.transform.position = pair.Value;
         }
     }

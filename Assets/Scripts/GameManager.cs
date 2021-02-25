@@ -11,7 +11,8 @@ public class GameManager : Singleton<GameManager>
     // event to subsbribe to
     public event OnPauseCallHandler OnPauseCalled;
 
-    public UIController uiController;
+    public Player player;
+    public UIController gameUIController;
     GameState gState;
 
     // Level Loading
@@ -25,12 +26,12 @@ public class GameManager : Singleton<GameManager>
 
     private void OnEnable()
     {
-        OnPauseCalled += uiController.ShowPauseMenu;
+        OnPauseCalled += gameUIController.ShowPauseMenu;
     }
 
     private void OnDisable()
     {
-        OnPauseCalled -= uiController.ShowPauseMenu;
+        OnPauseCalled -= gameUIController.ShowPauseMenu;
     }
 
     // Update is called once per frame

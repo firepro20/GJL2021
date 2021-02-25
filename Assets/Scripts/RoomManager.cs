@@ -5,13 +5,18 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     public Dictionary<NumberBox, Vector3> numberBoxInitialPos = new Dictionary<NumberBox, Vector3>();
-
+    public Transform spawnPosition;
     void Start()
     {
         // gathering all boxes
         foreach (NumberBox box in GetComponentsInChildren<NumberBox>())
         {
             numberBoxInitialPos.Add(box, box.transform.position);
+        }
+
+        if (!spawnPosition)
+        {
+            Debug.LogWarning("[RoomManager] The spawn position is not assigned!", this);
         }
     }
 

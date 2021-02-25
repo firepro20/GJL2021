@@ -210,6 +210,7 @@ public class Player : MonoBehaviour
             if (currentRoom)
             {
                 currentRoom.ResetRoom();
+                transform.position = currentRoom.spawnPosition.position;
             }
         }
     }

@@ -141,16 +141,15 @@ public class Player : MonoBehaviour
         OnPowerUpdated?.Invoke(Power.ADD, true); // temporary for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            powerIndex++;
-            while (characterPowers[powerIndex] != 1)
+            do
             {
                 powerIndex++;
                 if (powerIndex >= characterPowers.Length)
                 {
                     powerIndex = 0;
                 }
-            }
-            
+            } while (characterPowers[powerIndex] != 1);
+
             myPower = (Power)powerIndex;
             Debug.Log("My power is - " + myPower);
 

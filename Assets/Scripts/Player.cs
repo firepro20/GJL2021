@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
     void SwitchPower()
     {
         OnPowerUpdated?.Invoke(Power.ADD, true); // temporary for testing
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Switch"))
         {
             do
             {

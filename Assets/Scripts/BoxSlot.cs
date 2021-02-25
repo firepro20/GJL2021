@@ -24,7 +24,7 @@ public class BoxSlot : MonoBehaviour
         {
 
             boxOnTop = col.gameObject.GetComponent<NumberBox>();
-            boxOnTop.slot = this;
+            boxOnTop.SetSlot(this);
             Debug.Log("[BoxSlot] Got box with value: " + boxOnTop.GetNumberValue(), this);
             foreach (var slotsObserver in observers)
             {
@@ -37,7 +37,7 @@ public class BoxSlot : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Box"))
         {
-            boxOnTop.slot = null;
+            boxOnTop.SetSlot(null);
             boxOnTop = null;
             Debug.Log("[BoxSlot] Box detached", this);
             foreach (var slotsObserver in observers)

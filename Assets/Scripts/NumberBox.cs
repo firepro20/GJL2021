@@ -17,7 +17,7 @@ public class NumberBox : MonoBehaviour
     public Sprite[] operationIndicatorSprites;
     public Image[] operationIndicators;
 
-    public BoxSlot slot;
+    private BoxSlot slot;
     void Start()
     {
         numberText.text = numberValue.ToString();
@@ -104,5 +104,10 @@ public class NumberBox : MonoBehaviour
         }
 
         transform.position = newPos;
+    }
+
+    public void SetSlot(BoxSlot slot)
+    {
+        this.slot = slot;
     }
 }

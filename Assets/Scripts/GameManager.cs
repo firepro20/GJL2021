@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { Paused, Playing, End }
+public enum GameState { Playing, Paused, End }
 public class GameManager : Singleton<GameManager>
 {
     // defines function and parameters if required

@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialNumberValue: 0
   maxOperations: 5
-  moveSpeed: 3
+  moveSpeed: 4
   numberText: {fileID: 8803054028005965188}
   operationIndicatorSprites:
   - {fileID: 21300000, guid: 239ae616c8d04dc4fad15fa204f794a8, type: 3}

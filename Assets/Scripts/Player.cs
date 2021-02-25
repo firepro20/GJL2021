@@ -128,6 +128,10 @@ public class Player : MonoBehaviour
                             StartCoroutine(Move(moveToPosition));
                         }
                     }
+                    else if (hit.collider.CompareTag("ExitHole"))
+                    {
+                        StartCoroutine(Move(moveToPosition));
+                    }
                     else if (hit.collider.gameObject != this.gameObject)
                     {
                         Debug.LogWarning("[Player] Found unknown object: " + hit.collider.gameObject, hit.collider.gameObject);

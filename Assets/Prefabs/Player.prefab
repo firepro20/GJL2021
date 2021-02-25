@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 4
   wallObstacles: {fileID: 0}
   characterColors:
   - {r: 1, g: 1, b: 1, a: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { Paused, Playing, End }
 public class GameManager : Singleton<GameManager>
@@ -10,9 +11,12 @@ public class GameManager : Singleton<GameManager>
     // event to subsbribe to
     public event OnPauseCallHandler OnPauseCalled;
 
-    public Player player_;
     public UIController uiController;
     GameState gState;
+
+    // Level Loading
+    int levelIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +25,12 @@ public class GameManager : Singleton<GameManager>
 
     private void OnEnable()
     {
-        //OnPauseCalled += uiController.ShowPauseMenu;
+        OnPauseCalled += uiController.ShowPauseMenu;
     }
 
     private void OnDisable()
     {
-        //OnPauseCalled -= uiController.ShowPauseMenu;
+        OnPauseCalled -= uiController.ShowPauseMenu;
     }
 
     // Update is called once per frame
@@ -59,4 +63,10 @@ public class GameManager : Singleton<GameManager>
         gState = g;
     }
 
+    public void LoadLevel(bool additive = false)
+    {
+        LoadSceneMode mode;
+        if (additive) { mode = LoadSceneMode.Additive; } else { mode = LoadSceneMode.Single; }
+        SceneManager.LoadScene(++levelIndex, mode);
+    }
 }

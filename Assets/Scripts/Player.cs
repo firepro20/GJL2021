@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
 {
     // defines function and parameters if required
     public delegate void OnPowerUpdateHandler(Power p, bool state);
+    public delegate void OnPowerUIUpdateHandler(Power p);
     // event to subsbribe to
     public event OnPowerUpdateHandler OnPowerUpdated;
+    public event OnPowerUIUpdateHandler OnPowerUIUpdated;
 
     // Movement
     Vector3 movement;
@@ -44,15 +46,17 @@ public class Player : MonoBehaviour
     // character color
     public Color[] characterColors;
     private SpriteRenderer sprRenderer;
-
+    public RoomManager currentRoom;
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
+        OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
     }
 
     private void OnDisable()
     {
         OnPowerUpdated -= UpdatePower;
+        OnPowerUIUpdated -= GameManager.Instance.gameUIController.UpdateCurrentPower;
     }
 
     // Start is called before the first frame update
@@ -80,7 +84,7 @@ public class Player : MonoBehaviour
         // Using Raw for unfiltered input, no smoothing applied
         movement.x = Mathf.Round(Input.GetAxisRaw("Horizontal"));
         movement.y = Mathf.Round(Input.GetAxisRaw("Vertical"));
-        
+
         if (!isWalking && movement != oldMovement)
         {
             //Avoid diagonal movement
@@ -95,7 +99,8 @@ public class Player : MonoBehaviour
             if (wallObstacles.GetTile(wallMapTile) == null)
             {
                 // check for door and box
-                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
+                LayerMask mask = LayerMask.GetMask("RoomObject");
+                RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f, mask);
                 if (hit.collider != null)
                 {
                     if (hit.collider.CompareTag("Box"))
@@ -168,6 +173,7 @@ public class Player : MonoBehaviour
             } while (characterPowers[powerIndex] != 1);
 
             myPower = (Power)powerIndex;
+            OnPowerUIUpdated?.Invoke(myPower);
             UpdateColor();
             Debug.Log("My power is - " + myPower);
 
@@ -201,6 +207,11 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Reset"))
         {
             Debug.Log("Reset room");
+            if (currentRoom)
+            {
+                currentRoom.ResetRoom();
+                transform.position = currentRoom.spawnPosition.position;
+            }
         }
     }
 
@@ -228,6 +239,11 @@ public class Player : MonoBehaviour
     public int[] GetAllowedPowers()
     {
         return characterPowers;
+    }
+
+    public Power GetCurrentPower()
+    {
+        return myPower;
     }
 
     void UpdateColor()

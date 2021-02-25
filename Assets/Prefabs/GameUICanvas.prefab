@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 985731734464241780}
+  currentPowerText: {fileID: 689345744668973688}
 --- !u!1 &7387337680919249100
 GameObject:
   m_ObjectHideFlags: 0

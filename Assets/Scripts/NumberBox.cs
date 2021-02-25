@@ -20,6 +20,7 @@ public class NumberBox : MonoBehaviour
     private BoxSlot slot;
     void Start()
     {
+        numberValue = initialNumberValue;
         numberText.text = numberValue.ToString();
     }
 

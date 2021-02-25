@@ -711,6 +711,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1963631181054151648, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: initialNumberValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963631181622744904, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: initialNumberValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2689647422150639568, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1669,6 +1677,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371800801951378282, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924595107345791, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924595444253888, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924595787008887, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924596125204124, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924596371994972, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924596550998410, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924596572360731, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519924596726090126, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}
+      propertyPath: expectedResult
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7019566836242999262, guid: 1ca1c64669b73b34aaf9be30b7c05a13, type: 3}

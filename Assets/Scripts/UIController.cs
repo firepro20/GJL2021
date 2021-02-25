@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public Canvas pauseCanvas;
+    public GameObject pauseCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,10 @@ public class UIController : MonoBehaviour
         switch (state)
         {
             case GameState.Playing:
-                pauseCanvas.gameObject.SetActive(true);
+                pauseCanvas.SetActive(true);
                 break;
             case GameState.Paused:
-                pauseCanvas.gameObject.SetActive(false);
+                pauseCanvas.SetActive(false);
                 break;
             default:
                 break;

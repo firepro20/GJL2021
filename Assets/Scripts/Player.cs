@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
     // Snap Tile Correction
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
 
+    // character color
+    public Color[] characterColors;
+    private SpriteRenderer sprRenderer;
+
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         transform.position = spawnPoint.position;
+        sprRenderer = GetComponent<SpriteRenderer>();
         OnPowerUpdated?.Invoke(Power.MOVE, true);
         OnPowerUpdated?.Invoke(Power.RESET, true);
     }
@@ -163,6 +168,7 @@ public class Player : MonoBehaviour
             } while (characterPowers[powerIndex] != 1);
 
             myPower = (Power)powerIndex;
+            UpdateColor();
             Debug.Log("My power is - " + myPower);
 
         }
@@ -222,5 +228,10 @@ public class Player : MonoBehaviour
     public int[] GetAllowedPowers()
     {
         return characterPowers;
+    }
+
+    void UpdateColor()
+    {
+        sprRenderer.material.SetColor("_RedColorReplace", characterColors[(int)myPower]);
     }
 }

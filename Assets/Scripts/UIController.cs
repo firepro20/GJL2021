@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     public GameObject pauseCanvas;
     public TextMeshProUGUI currentPowerText;
     // Start is called before the first frame update
+    public GameObject equationSign;
+    public TMP_Text[] numberTexts;
+    public GameObject[] minusSigns;
+    public TMP_Text expectedResultText;
     void Start()
     {
         
@@ -59,5 +64,40 @@ public class UIController : MonoBehaviour
                 break;
         }
         currentPowerText.text = currentPower; 
+    }
+
+    public void ShowEquation()
+    {
+        equationSign.SetActive(true);
+    }
+
+    public void UpdateEquation(List<string> numbers, string result)
+    {
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            numberTexts[i].gameObject.SetActive(true);
+            numberTexts[i].text = numbers[i];
+        }
+
+        for (int i = 0; i < numbers.Count - 1; i++)
+        {
+            minusSigns[i].gameObject.SetActive(true);
+        }
+
+        expectedResultText.text = result;
+    }
+
+    public void HideEquation()
+    {
+        foreach (var numberText in numberTexts)
+        {
+            numberText.gameObject.SetActive(false);
+        }
+
+        foreach (var minusSign in minusSigns)
+        {
+            minusSign.SetActive(false);
+        }
+        equationSign.SetActive(false);
     }
 }

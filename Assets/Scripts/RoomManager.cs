@@ -6,6 +6,8 @@ public class RoomManager : MonoBehaviour
 {
     public Dictionary<NumberBox, Vector3> numberBoxInitialPos = new Dictionary<NumberBox, Vector3>();
     public Transform spawnPosition;
+
+    private SlotsObserver SlotsObserver;
     void Start()
     {
         // gathering all boxes
@@ -13,6 +15,8 @@ public class RoomManager : MonoBehaviour
         {
             numberBoxInitialPos.Add(box, box.transform.position);
         }
+
+        SlotsObserver = GetComponentInChildren<SlotsObserver>();
 
         if (!spawnPosition)
         {
@@ -39,7 +43,11 @@ public class RoomManager : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            Debug.Log("[RoomManager] Player entered room: " + this, this);
             col.gameObject.GetComponent<Player>().currentRoom = this;
+            GameManager.Instance.gameUIController.ShowEquation();
+            SlotsObserver.CalculateResult();
+            UpdateEquation();
         }
     }
 
@@ -47,7 +55,27 @@ public class RoomManager : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            Debug.Log("[RoomManager] Player exited room: " + this, this);
             col.gameObject.GetComponent<Player>().currentRoom = null;
+            GameManager.Instance.gameUIController.HideEquation();
         }
+    }
+
+    public void UpdateEquation()
+    {
+        List<string> numberList = new List<string>();
+        foreach (BoxSlot slot in SlotsObserver.boxSlots)
+        {
+            if (slot.GetBoxOnTop())
+            {
+                numberList.Add(slot.GetBoxOnTop().GetNumberValue().ToString());
+            }
+            else
+            {
+                numberList.Add("X");
+            }
+        }
+
+        GameManager.Instance.gameUIController.UpdateEquation(numberList, SlotsObserver.expectedResult.ToString());
     }
 }

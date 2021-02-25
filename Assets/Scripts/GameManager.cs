@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public UIController gameUIController;
     GameState gState;
 
+    // Player unlocked abilities
+    int[] currentCharacterPowers;
+
     // Level Loading
     int levelIndex = 1;
 
@@ -96,11 +99,18 @@ public class GameManager : MonoBehaviour
         levelIndex++;
         if (levelIndex < SceneManager.sceneCountInBuildSettings)
         SceneManager.LoadScene(levelIndex, mode);
+
+        // Save player unlocked powers
+        currentCharacterPowers = player.GetAllowedPowers();
     }
 
     private void ActiveSceneLoaded(Scene s, LoadSceneMode mode)
     {
+        // Populate fields
         player = FindObjectOfType<Player>();
         gameUIController = FindObjectOfType<UIController>();
+
+        // Reapply saved powers across new level
+        player.SetAllowedPowers(currentCharacterPowers);
     }
 }

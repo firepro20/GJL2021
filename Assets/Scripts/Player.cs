@@ -249,6 +249,11 @@ public class Player : MonoBehaviour
         return characterPowers;
     }
 
+    public void SetAllowedPowers(int[] cp)
+    {
+        characterPowers = cp;
+    }
+
     public Power GetCurrentPower()
     {
         return myPower;

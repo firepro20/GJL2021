@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
         }
 
         transform.position = newPos;
-
+        currentRoom?.UpdateEquation();
         isWalking = false;
     }
 
@@ -193,9 +193,11 @@ public class Player : MonoBehaviour
             case Power.ADD:
                 int currentValue = box.GetNumberValue();
                 box.SetNumberValue(currentValue + 3);
+                currentRoom.UpdateEquation();
                 break;
             case Power.RESET:
                 box.ResetOperations();
+                currentRoom.UpdateEquation();
                 break;
             default:
                 break;

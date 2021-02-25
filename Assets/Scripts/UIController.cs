@@ -5,18 +5,23 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    public GameObject pauseCanvas;
     public TextMeshProUGUI currentPowerText;
-
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+    
     public void ShowPauseMenu(GameState state)
     {
         switch (state)
         {
             case GameState.Playing:
-                pauseMenu.gameObject.SetActive(true);
+                pauseCanvas.SetActive(true);
                 break;
             case GameState.Paused:
-                pauseMenu.gameObject.SetActive(false);
+                pauseCanvas.SetActive(false);
                 break;
             default:
                 break;

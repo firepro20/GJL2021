@@ -1342,6 +1342,7 @@ GameObject:
   - component: {fileID: 7387337680731376490}
   - component: {fileID: 7387337680731376489}
   - component: {fileID: 7387337680731376488}
+  - component: {fileID: 5576290142873563502}
   m_Layer: 5
   m_Name: GameUICanvas
   m_TagString: Untagged
@@ -1431,6 +1432,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5576290142873563502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387337680731376495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b34d2dfe106814bb8905dddf08650f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 985731734464241780}
 --- !u!1 &7387337680919249100
 GameObject:
   m_ObjectHideFlags: 0

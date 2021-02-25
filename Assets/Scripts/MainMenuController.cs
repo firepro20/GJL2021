@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void LoadMainLevel()
     {
-       SceneManager.LoadScene("Main");
+       SceneManager.LoadScene("Level_01");
     }
 
     public void Exit()

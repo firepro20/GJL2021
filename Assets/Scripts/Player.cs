@@ -210,6 +210,8 @@ public class Player : MonoBehaviour
             if (currentRoom)
             {
                 currentRoom.ResetRoom();
+                StopAllCoroutines();
+                isWalking = false;
                 transform.position = currentRoom.spawnPosition.position;
             }
         }

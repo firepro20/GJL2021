@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
 {
     // defines function and parameters if required
     public delegate void OnPowerUpdateHandler(Power p, bool state);
+    public delegate void OnPowerUIUpdateHandler(Power p);
     // event to subsbribe to
     public event OnPowerUpdateHandler OnPowerUpdated;
+    public event OnPowerUIUpdateHandler OnPowerUIUpdated;
 
     // Movement
     Vector3 movement;
@@ -48,11 +50,13 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
+        OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
     }
 
     private void OnDisable()
     {
         OnPowerUpdated -= UpdatePower;
+        OnPowerUIUpdated -= GameManager.Instance.gameUIController.UpdateCurrentPower;
     }
 
     // Start is called before the first frame update
@@ -80,7 +84,7 @@ public class Player : MonoBehaviour
         // Using Raw for unfiltered input, no smoothing applied
         movement.x = Mathf.Round(Input.GetAxisRaw("Horizontal"));
         movement.y = Mathf.Round(Input.GetAxisRaw("Vertical"));
-        
+
         if (!isWalking && movement != oldMovement)
         {
             //Avoid diagonal movement
@@ -169,6 +173,7 @@ public class Player : MonoBehaviour
             } while (characterPowers[powerIndex] != 1);
 
             myPower = (Power)powerIndex;
+            OnPowerUIUpdated?.Invoke(myPower);
             UpdateColor();
             Debug.Log("My power is - " + myPower);
 
@@ -233,6 +238,11 @@ public class Player : MonoBehaviour
     public int[] GetAllowedPowers()
     {
         return characterPowers;
+    }
+
+    public Power GetCurrentPower()
+    {
+        return myPower;
     }
 
     void UpdateColor()

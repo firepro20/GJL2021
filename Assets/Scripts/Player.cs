@@ -8,7 +8,7 @@ public enum Power
 {
     MOVE,
     ADD, // +3
-    MULTIPLY, // x2
+    MULTIPLY, // x2 
     POWER, // ^2
     DIVIDE, // /4
     RESET
@@ -33,9 +33,10 @@ public class Player : MonoBehaviour
     public Tilemap wallObstacles;
 
     // Character Power
-    int[] characterPowers = { 0, 0, 0, 0 };
-    Power myPower = Power.MOVE;
+    int[] characterPowers = { 0, 0, 0, 0, 0, 0 };
+    Power myPower;
     Vector3 boxPositionCheck;
+    int powerIndex = 0;
 
     // Snap Tile Correction
     Vector2 tileOffset = new Vector2(0.5f, 0.5f);
@@ -54,7 +55,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         transform.position = spawnPoint.position;
-        OnPowerUpdated?.Invoke(Power.ADD, true);
+        OnPowerUpdated?.Invoke(Power.MOVE, true);
+        OnPowerUpdated?.Invoke(Power.RESET, true);
     }
 
     // Update is called once per frame
@@ -63,8 +65,8 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.GetGameState() == GameState.Playing)
         {
             UpdateMovement();
-            SwitchCharacter();
-            //OperateOnBox(); // use similar functionality for moving to check if there are boxes in four directions with arrow keys
+            SwitchPower();
+            ListenForResetRoom();
         }
     }
 
@@ -93,8 +95,8 @@ public class Player : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Box"))
                     {
-                        Debug.Log("[Player] Found box next to player", hit.collider.gameObject);
                         NumberBox box = hit.collider.GetComponent<NumberBox>();
+                        Debug.Log("[Player] Found box next to player", hit.collider.gameObject);
                         OperateOnBox(box);
                     }
                     else if (hit.collider.CompareTag("Door"))
@@ -135,10 +137,22 @@ public class Player : MonoBehaviour
         isWalking = false;
     }
 
-    void SwitchCharacter()
+    void SwitchPower()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        OnPowerUpdated?.Invoke(Power.ADD, true); // temporary for testing
+        if (Input.GetButtonDown("Switch"))
         {
+            do
+            {
+                powerIndex++;
+                if (powerIndex >= characterPowers.Length)
+                {
+                    powerIndex = 0;
+                }
+            } while (characterPowers[powerIndex] != 1);
+
+            myPower = (Power)powerIndex;
+            Debug.Log("My power is - " + myPower);
 
         }
     }
@@ -148,18 +162,28 @@ public class Player : MonoBehaviour
         switch (myPower)
         {
             case Power.MOVE:
-                // check if the box is stuck or not then allow the player to move
                 if (box.MoveBox(movement, wallObstacles))
                 {
                     StartCoroutine(Move(moveToPosition));
                 }
                 break;
             case Power.ADD:
-                box.SetNumberValue(box.GetNumberValue() + 2);
+                int currentValue = box.GetNumberValue();
+                box.SetNumberValue(currentValue + 3);
                 break;
             case Power.RESET:
                 box.ResetOperations();
                 break;
+            default:
+                break;
+        }
+    }
+
+    void ListenForResetRoom()
+    {
+        if (Input.GetButtonDown("Reset"))
+        {
+            Debug.Log("Reset room");
         }
     }
 

@@ -107,9 +107,20 @@ public class Player : MonoBehaviour
                             StartCoroutine(Move(moveToPosition));
                         }
                     }
-                    else if (hit.collider.CompareTag("Slot") && !hit.collider.GetComponent<BoxSlot>().GetBoxOnTop())
+                    else if (hit.collider.CompareTag("Slot"))
                     {
-                        StartCoroutine(Move(moveToPosition));
+                        if (hit.collider.GetComponent<BoxSlot>().GetBoxOnTop())
+                        {
+                            OperateOnBox(hit.collider.GetComponent<BoxSlot>().GetBoxOnTop());
+                        }
+                        else
+                        {
+                            StartCoroutine(Move(moveToPosition));
+                        }
+                    }
+                    else if (hit.collider.gameObject != this.gameObject)
+                    {
+                        Debug.LogWarning("[Player] Found unknown object: " + hit.collider.gameObject, hit.collider.gameObject);
                     }
                 }
                 else

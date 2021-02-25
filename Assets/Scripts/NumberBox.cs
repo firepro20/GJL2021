@@ -78,8 +78,10 @@ public class NumberBox : MonoBehaviour
 
         if (wallObstacles.GetTile(wallMapTile) == null)
         {
-            RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f);
-            if (hit.collider != null && hit.collider.CompareTag("Door"))
+            // check for door and box
+            LayerMask mask = LayerMask.GetMask("RoomObject");
+            RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f, mask);
+            if (hit.collider != null && (hit.collider.CompareTag("Door") || hit.collider.CompareTag("Box")))
             {
                 return false;
             }

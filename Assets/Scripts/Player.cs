@@ -70,8 +70,8 @@ public class Player : MonoBehaviour
     void UpdateMovement()
     {
         // Using Raw for unfiltered input, no smoothing applied
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Mathf.Round(Input.GetAxisRaw("Horizontal"));
+        movement.y = Mathf.Round(Input.GetAxisRaw("Vertical"));
         
         if (!isWalking && movement != oldMovement)
         {
@@ -177,7 +177,19 @@ public class Player : MonoBehaviour
         boxPositionCheck = transform.position;
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            boxPositionCheck = transform.position + new Vector3(0, 1, 0);
+            case Power.MOVE:
+                // check if the box is stuck or not then allow the player to move
+                if (box.MoveBox(movement, wallObstacles))
+                {
+                    StartCoroutine(Move(moveToPosition));
+                }
+                break;
+            case Power.ADD:
+                box.SetNumberValue(box.GetNumberValue() + 2);
+                break;
+            case Power.RESET:
+                box.ResetOperations();
+                break;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {

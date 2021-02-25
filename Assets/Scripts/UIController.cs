@@ -40,7 +40,7 @@ public class UIController : MonoBehaviour
                 currentPower = "MOVE";
                 break;
             case Power.ADD:
-                currentPower = "MOVE";
+                currentPower = "ADD";
                 break;
             case Power.MULTIPLY:
                 currentPower = "MULTIPLY";

@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
         {
             UpdateMovement();
             SwitchPower();
+            ListenForResetRoom();
         }
     }
 
@@ -175,6 +176,14 @@ public class Player : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    void ListenForResetRoom()
+    {
+        if (Input.GetButtonDown("Reset"))
+        {
+            Debug.Log("Reset room");
         }
     }
 

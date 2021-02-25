@@ -16,6 +16,8 @@ public class NumberBox : MonoBehaviour
     public TMP_Text numberText;
     public Sprite[] operationIndicatorSprites;
     public Image[] operationIndicators;
+
+    public BoxSlot slot;
     void Start()
     {
         numberText.text = numberValue.ToString();
@@ -47,6 +49,7 @@ public class NumberBox : MonoBehaviour
     {
         operationsCount = 0;
         numberValue = initialNumberValue;
+        slot?.TriggerCalculateResult();
         UpdateUI();
     }
 
@@ -57,7 +60,7 @@ public class NumberBox : MonoBehaviour
             numberValue = newValue;
             operationsCount++;
         }
-
+        slot?.TriggerCalculateResult();
         UpdateUI();
     }
 

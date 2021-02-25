@@ -308,10 +308,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5576290142873563502, guid: 0559c79e070a37d49a68b9b5b54771ff, type: 3}
-      propertyPath: currentPowerText
-      value: 
-      objectReference: {fileID: 1587000107}
     - target: {fileID: 7387337680731376491, guid: 0559c79e070a37d49a68b9b5b54771ff, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4294,17 +4290,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 391638ea1f75fbf44bd2319ccf554c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1587000107 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 689345744668973688, guid: 0559c79e070a37d49a68b9b5b54771ff, type: 3}
-  m_PrefabInstance: {fileID: 100371050}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1597805463

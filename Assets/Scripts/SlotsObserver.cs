@@ -16,6 +16,11 @@ public class SlotsObserver : MonoBehaviour
         {
             boxSlot.AddObserver(this);
         }
+
+        if (boxSlots.Length == 0)
+        {
+            Debug.LogWarning("[SlotsObserver] No BoxSlot is assigned in this SlotsObserver!", this);
+        }
     }
 
     // Update is called once per frame

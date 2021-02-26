@@ -9,6 +9,8 @@ TagManager:
   - Door
   - ExitHole
   - PartyNPC
+  - CoinDoor
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
         OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
 
         OnPowerUpdated?.Invoke(Power.MOVE, true);
-        OnPowerUpdated?.Invoke(Power.ADD, true); // remove before release
         OnPowerUpdated?.Invoke(Power.RESET, true);
         OnPartyMembersUpdated?.Invoke(characterPowers);
         UpdateColor();
@@ -291,7 +290,7 @@ public class Player : MonoBehaviour
     /// </summary>
     /// <param name="p">Power to allow</param>
     /// <param name="state"></param>
-    void UpdatePower(Power p, bool state)
+    public void UpdatePower(Power p, bool state)
     {
         int s = state ? 1 : 0;
         characterPowers[(int)p] = s;

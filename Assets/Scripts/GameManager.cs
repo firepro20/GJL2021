@@ -96,14 +96,19 @@ public class GameManager : MonoBehaviour
     {
         if (levelIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(levelIndex);
-        // TODO: Reset party member and coin count
+        
+        // Reset party member and coin count
+        player.SetAllowedPowers(currentCharacterPowers);
+        gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
         Unpause();
     }
 
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
-        // TODO: Reset party member and coin count
+        SceneManager.LoadScene("MainMenu"); 
+        // Reset party member and coin count
+        player.SetAllowedPowers(currentCharacterPowers);
+        gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
         Unpause();
     }
 

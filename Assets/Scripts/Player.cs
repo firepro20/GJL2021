@@ -55,13 +55,13 @@ public class Player : MonoBehaviour
 
     // hold time
     private float holdTime = 0;
-    private void OnEnable()
-    {
-        OnPowerUpdated += UpdatePower;
-        OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
-        OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
-    }
-
+    // private void OnEnable()
+    // {
+    //     OnPowerUpdated += UpdatePower;
+    //     OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
+    //     OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
+    // }
+    //
     private void OnDisable()
     {
         OnPowerUpdated -= UpdatePower;
@@ -74,6 +74,11 @@ public class Player : MonoBehaviour
     {
         transform.position = spawnPoint.position;
         sprRenderer = GetComponent<SpriteRenderer>();
+
+        OnPowerUpdated += UpdatePower;
+        OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
+        OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
+
         OnPowerUpdated?.Invoke(Power.MOVE, true);
         OnPowerUpdated?.Invoke(Power.ADD, true); // remove before release
         OnPowerUpdated?.Invoke(Power.RESET, true);

@@ -93,14 +93,19 @@ public class Player : MonoBehaviour
 
         if (movement != Vector3.zero && movement == oldMovement)
         {
-            if (holdTime < 1f)
+            if (holdTime < 0.25f)
             {
                 holdTime += Time.deltaTime;
             }
             else
             {
                 movement = Vector3.zero;
+                holdTime = 0;
             }
+        }
+        else
+        {
+            holdTime = 0;
         }
 
         if (!isWalking && movement != oldMovement)

@@ -5875,7 +5875,7 @@ GameObject:
   - component: {fileID: 7019566836077065939}
   - component: {fileID: 7019566836077065940}
   - component: {fileID: 7019566836077065941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5929,7 +5929,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -6.4975777, y: 1.0040832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5940,7 +5940,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.9888573, y: 8.028584}
   m_EdgeRadius: 0
 --- !u!4 &7019566836201416776
 Transform:
@@ -5973,7 +5973,7 @@ GameObject:
   - component: {fileID: 7019566836201416776}
   - component: {fileID: 7019566836201416780}
   - component: {fileID: 7019566836201416781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5993,8 +5993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1899338345}
---- !u!61 &7019566836201416781
-BoxCollider2D:
+--- !u!60 &7019566836201416781
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6016,9 +6016,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 12.128944, y: 12.943995}
+      - {x: 13.958552, y: 13.083797}
+      - {x: 13.993204, y: 16.007872}
+      - {x: 10.934959, y: 16.97551}
+      - {x: 7.9456477, y: 16.973125}
+      - {x: 7.950848, y: 14.725787}
+      - {x: 7.969572, y: 11.062439}
+      - {x: 11.00461, y: 11.023626}
 --- !u!1 &7019566836567131009
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,7 +6037,7 @@ GameObject:
   - component: {fileID: 7019566836567131070}
   - component: {fileID: 7019566836567131010}
   - component: {fileID: 7019566836567131011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6063,7 +6070,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 8.017803, y: 7.5310082}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6074,7 +6081,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.9824944, y: 6.9560823}
   m_EdgeRadius: 0
 --- !u!4 &7019566836567131070
 Transform:
@@ -6107,7 +6114,7 @@ GameObject:
   - component: {fileID: 7019566836888788183}
   - component: {fileID: 7019566836888788184}
   - component: {fileID: 7019566836888788185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6160,7 +6167,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.46585548, y: -2.9732542}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6171,7 +6178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.918228, y: 5.905184}
   m_EdgeRadius: 0
 --- !u!1 &7019566837182985150
 GameObject:
@@ -6184,7 +6191,7 @@ GameObject:
   - component: {fileID: 7019566837182985151}
   - component: {fileID: 7019566837182985152}
   - component: {fileID: 7019566837182985153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6237,7 +6244,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.9825592, y: 4.508827}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6248,7 +6255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.980092, y: 4.906419}
   m_EdgeRadius: 0
 --- !u!1 &7019566837266510640
 GameObject:
@@ -6319,7 +6326,7 @@ GameObject:
   - component: {fileID: 7019566837341751876}
   - component: {fileID: 7019566837341751880}
   - component: {fileID: 7019566837341751881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6339,8 +6346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 300353652}
---- !u!61 &7019566837341751881
-BoxCollider2D:
+--- !u!60 &7019566837341751881
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6362,9 +6369,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 18.877625, y: 12.982244}
+      - {x: 13.0950775, y: 12.984777}
+      - {x: 12.995752, y: 10.414189}
+      - {x: 12.974642, y: 8.949868}
+      - {x: 13.031344, y: 8.920496}
+      - {x: 15.981469, y: 9.031323}
+      - {x: 16.033642, y: 6.989515}
+      - {x: 18.89796, y: 7.074727}
 --- !u!1 &7019566837378166244
 GameObject:
   m_ObjectHideFlags: 0
@@ -6376,7 +6390,7 @@ GameObject:
   - component: {fileID: 7019566837378166245}
   - component: {fileID: 7019566837378166246}
   - component: {fileID: 7019566837378166247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6429,7 +6443,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.5196295, y: 11.038036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6440,7 +6454,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.9679995, y: 5.9457016}
   m_EdgeRadius: 0
 --- !u!4 &7019566837470559210
 Transform:
@@ -6473,7 +6487,7 @@ GameObject:
   - component: {fileID: 7019566837470559210}
   - component: {fileID: 7019566837470559214}
   - component: {fileID: 7019566837470559215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6506,7 +6520,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 5.0051813, y: 0.50051826}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6517,7 +6531,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.9808636, y: 4.9819}
   m_EdgeRadius: 0
 --- !u!1 &8301802399351310585
 GameObject:

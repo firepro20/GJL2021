@@ -22,9 +22,16 @@ public class UIController : MonoBehaviour
     public GameObject dialogueBox;
     public TMP_Text dialogueText;
 
+    public ColorDatabase colorDB;
     private void Start()
     {
         //PopulatePartyImages();
+        for (int i = 0; i < partyMembersUI.Length; i++)
+        {
+            Material mat = Instantiate(partyMembersUI[i].material);
+            mat.SetColor("_RedColorReplace", colorDB.colors[i]);
+            partyMembersUI[i].material = mat;
+        }
     }
 
     void Update()

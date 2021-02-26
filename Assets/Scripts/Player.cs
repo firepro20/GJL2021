@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
     IEnumerator Move(Vector3 newPos)
     { 
         isWalking = true;
-        while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        while ((newPos - transform.position).sqrMagnitude > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
             yield return null;

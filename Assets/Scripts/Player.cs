@@ -294,6 +294,7 @@ public class Player : MonoBehaviour
     {
         int s = state ? 1 : 0;
         characterPowers[(int)p] = s;
+        OnPartyMembersUpdated?.Invoke(characterPowers);
     }
 
     public int[] GetAllowedPowers()

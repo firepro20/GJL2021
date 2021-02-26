@@ -66,20 +66,40 @@ public class GameManager : MonoBehaviour
 
     void CheckInterruptInput()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gState == GameState.Playing)
+        if (Input.GetButtonDown("Cancel") && gState == GameState.Playing)
         {
-            OnPauseCalled?.Invoke(gState);
-            gState = GameState.Paused;
+            Pause();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && gState == GameState.Paused)
+        else if (Input.GetButtonDown("Cancel") && gState == GameState.Paused)
         {
-            OnPauseCalled?.Invoke(gState);
-            gState = GameState.Playing;
+            Unpause();
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
             LoadLevel();
         }
+    }
+
+    public void Pause()
+    {
+        OnPauseCalled?.Invoke(gState);
+        gState = GameState.Paused;
+    }
+
+    public void Unpause()
+    {
+        OnPauseCalled?.Invoke(gState);
+        gState = GameState.Playing;
+    }
+
+    public void RestartLevel()
+    {
+
+    }
+
+    public void QuitToMainMenu()
+    {
+
     }
 
     public GameState GetGameState()

@@ -37,9 +37,4 @@ public class AudioController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-
-    }
 }

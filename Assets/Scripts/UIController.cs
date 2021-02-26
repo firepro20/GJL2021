@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     public GameObject pauseCanvas;
     public TextMeshProUGUI currentPowerText;
-    // Start is called before the first frame update
+
     public GameObject equationSign;
     public TMP_Text[] numberTexts;
     public GameObject[] minusSigns;
     public TMP_Text expectedResultText;
     public TMP_Text coinText;
-    void Start()
+    public Image[] partyMembersUI;
+    public GameObject partyMembersParent;
+
+    private void Start()
     {
-        
+        //PopulatePartyImages();
     }
-    
+
     public void ShowPauseMenu(GameState state)
     {
         switch (state)
@@ -106,5 +110,43 @@ public class UIController : MonoBehaviour
     public void UpdateCoinUI(int amount)
     {
         coinText.text = amount.ToString();
+    }
+
+    /*
+    private void PopulatePartyImages()
+    {
+        for (int i = 0; i < partyMembersUI.Length; i++)
+        {
+            partyMembersUI[i] = partyMembersParent.transform.GetChild(i).GetComponent<Image>();
+        }
+    }
+    */
+
+    /*
+    private void PopulatePartyImages(Scene scene, LoadSceneMode mode)
+    {
+        if (!scene.name.Contains("Menu"))
+        {
+            for (int i = 0; i < partyMembersUI.Length; i++)
+            {
+                partyMembersUI[i] = partyMembersParent.transform.GetChild(i).GetComponent<Image>();
+            }
+        }
+    }
+    */
+
+    public void UpdatePartyMembersUI(int[] discoveredPowers)
+    {
+        for (int i = 0; i < discoveredPowers.Length; i++)
+        {
+            if(discoveredPowers[i] == 1)
+            {
+                partyMembersUI[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                partyMembersUI[i].gameObject.SetActive(false);
+            }
+        }
     }
 }

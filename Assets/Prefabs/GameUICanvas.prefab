@@ -2598,6 +2598,14 @@ MonoBehaviour:
   - {fileID: 8295951546436163905}
   expectedResultText: {fileID: 5335624556858320742}
   coinText: {fileID: 3871540707975233954}
+  partyMembersUI:
+  - {fileID: 7387337682026416114}
+  - {fileID: 7387337681148789971}
+  - {fileID: 7387337681662966799}
+  - {fileID: 7387337681792616396}
+  - {fileID: 8132630103251232609}
+  - {fileID: 560236167118617975}
+  partyMembersParent: {fileID: 7387337680572020235}
 --- !u!1 &7387337680919249100
 GameObject:
   m_ObjectHideFlags: 0

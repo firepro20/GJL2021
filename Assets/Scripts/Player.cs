@@ -19,9 +19,11 @@ public class Player : MonoBehaviour
     // defines function and parameters if required
     public delegate void OnPowerUpdateHandler(Power p, bool state);
     public delegate void OnPowerUIUpdateHandler(Power p);
+    public delegate void OnPartyMembersUpdateHandler(int[] discoveredPowers);
     // event to subsbribe to
     public event OnPowerUpdateHandler OnPowerUpdated;
     public event OnPowerUIUpdateHandler OnPowerUIUpdated;
+    public event OnPartyMembersUpdateHandler OnPartyMembersUpdated;
 
     // Movement
     Vector3 movement;
@@ -54,12 +56,14 @@ public class Player : MonoBehaviour
     {
         OnPowerUpdated += UpdatePower;
         OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
+        OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
     }
 
     private void OnDisable()
     {
         OnPowerUpdated -= UpdatePower;
         OnPowerUIUpdated -= GameManager.Instance.gameUIController.UpdateCurrentPower;
+        OnPartyMembersUpdated -= GameManager.Instance.gameUIController.UpdatePartyMembersUI;
     }
 
     // Start is called before the first frame update
@@ -68,7 +72,9 @@ public class Player : MonoBehaviour
         transform.position = spawnPoint.position;
         sprRenderer = GetComponent<SpriteRenderer>();
         OnPowerUpdated?.Invoke(Power.MOVE, true);
+        OnPowerUpdated?.Invoke(Power.ADD, true); // remove before release
         OnPowerUpdated?.Invoke(Power.RESET, true);
+        OnPartyMembersUpdated?.Invoke(characterPowers);
     }
 
     // Update is called once per frame
@@ -186,7 +192,6 @@ public class Player : MonoBehaviour
 
     void SwitchPower()
     {
-        OnPowerUpdated?.Invoke(Power.ADD, true); // temporary for testing
         if (Input.GetButtonDown("Switch"))
         {
             do

@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
     public void QuitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        // TODO: Reset party member and coin count
+        Unpause();
     }
 
     public GameState GetGameState()

@@ -12,6 +12,7 @@ public class PartyNPC : MonoBehaviour
         {
             Player player = col.gameObject.GetComponent<Player>();
             Debug.Log("[PartyNPC] Power obtained: " + obtainablePower);
+            GameManager.Instance.gameUIController.ShowDialogue("Power " + obtainablePower + " Obtained!");
             Destroy(gameObject);
         }
     }

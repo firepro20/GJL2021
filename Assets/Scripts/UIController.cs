@@ -18,9 +18,21 @@ public class UIController : MonoBehaviour
     public Image[] partyMembersUI;
     public GameObject partyMembersParent;
 
+    public bool dialogueShowing = false;
+    public GameObject dialogueBox;
+    public TMP_Text dialogueText;
+
     private void Start()
     {
         //PopulatePartyImages();
+    }
+
+    void Update()
+    {
+        if (dialogueShowing && Input.anyKeyDown)
+        {
+            HideDialogue();
+        }
     }
 
     public void ShowPauseMenu(GameState state)
@@ -149,5 +161,20 @@ public class UIController : MonoBehaviour
                 partyMembersUI[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ShowDialogue(string text)
+    {
+        dialogueBox.SetActive(true);
+        dialogueText.text = text;
+        dialogueShowing = true;
+        GameManager.Instance.SetGameState(GameState.Paused);
+    }
+
+    public void HideDialogue()
+    {
+        dialogueShowing = false;
+        dialogueBox.SetActive(false);
+        GameManager.Instance.SetGameState(GameState.Playing);
     }
 }

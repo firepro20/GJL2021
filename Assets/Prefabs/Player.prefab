@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 4
   animator: {fileID: 4434432689228433742}
   wallObstacles: {fileID: 0}
   characterColorsDatabase: {fileID: 11400000, guid: 4dba9d23275bef14cb64317d4e019a30, type: 2}

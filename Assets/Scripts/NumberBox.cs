@@ -81,9 +81,21 @@ public class NumberBox : MonoBehaviour
             // check for door and box
             LayerMask mask = LayerMask.GetMask("RoomObject");
             RaycastHit2D hit = Physics2D.Raycast(moveToPosition, Vector2.up, 0f, mask);
-            if (hit.collider != null && (hit.collider.CompareTag("Door") || hit.collider.CompareTag("Box")))
+            if (hit.collider != null)
             {
-                return false;
+                if (hit.collider.CompareTag("Door") || hit.collider.CompareTag("Box"))
+                {
+                    return false;
+                }
+                else if (hit.collider.CompareTag("Slot") && hit.collider.GetComponent<BoxSlot>().GetBoxOnTop())
+                {
+                    return false;
+                }
+                else
+                {
+                    StartCoroutine(Move(moveToPosition));
+                    return true;
+                }
             }
             else
             {

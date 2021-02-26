@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     public TMP_Text[] numberTexts;
     public GameObject[] minusSigns;
     public TMP_Text expectedResultText;
+    public TMP_Text coinText;
     void Start()
     {
         
@@ -100,5 +101,10 @@ public class UIController : MonoBehaviour
             minusSign.SetActive(false);
         }
         equationSign.SetActive(false);
+    }
+
+    public void UpdateCoinUI(int amount)
+    {
+        coinText.text = amount.ToString();
     }
 }

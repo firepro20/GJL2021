@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
     public Color[] characterColors;
     private SpriteRenderer sprRenderer;
     public RoomManager currentRoom;
+
+    // coins
+    private int numOfCoins = 0;
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
@@ -115,6 +118,25 @@ public class Player : MonoBehaviour
                         if (hit.collider.GetComponent<Door>().GetUnlocked())
                         {
                             StartCoroutine(Move(moveToPosition));
+                        }
+                    }
+                    else if (hit.collider.CompareTag("Coin"))
+                    {
+                        IncrementNumOfCoins();
+                        Destroy(hit.collider.gameObject);
+                        StartCoroutine(Move(moveToPosition));
+                        GameManager.Instance.gameUIController.UpdateCoinUI(numOfCoins);
+                    }
+                    else if (hit.collider.CompareTag("CoinDoor"))
+                    {
+                        if (hit.collider.GetComponent<Door>().GetUnlocked())
+                        {
+                            StartCoroutine(Move(moveToPosition));
+                        }
+                        else
+                        {
+                            hit.collider.GetComponent<CoinEvent>().Pay(this);
+                            GameManager.Instance.gameUIController.UpdateCoinUI(numOfCoins);
                         }
                     }
                     else if (hit.collider.CompareTag("Slot"))
@@ -262,5 +284,24 @@ public class Player : MonoBehaviour
     void UpdateColor()
     {
         sprRenderer.material.SetColor("_RedColorReplace", characterColors[(int)myPower]);
+    }
+
+    public int GetNumOfCoins()
+    {
+        return numOfCoins;
+    }
+
+    public void IncrementNumOfCoins()
+    {
+        numOfCoins++;
+    }
+
+    public void RemoveNumOfCoins(int amount)
+    {
+        numOfCoins -= amount;
+        if (numOfCoins < 0)
+        {
+            numOfCoins = 0;
+        }
     }
 }

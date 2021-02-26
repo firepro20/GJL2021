@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
         if (movement != Vector3.zero && movement == oldMovement)
         {
-            if (holdTime < 0.25f)
+            if (holdTime < 0.27f)
             {
                 holdTime += Time.deltaTime;
             }

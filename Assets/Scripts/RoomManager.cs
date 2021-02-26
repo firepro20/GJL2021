@@ -64,6 +64,7 @@ public class RoomManager : MonoBehaviour
     public void UpdateEquation()
     {
         List<string> numberList = new List<string>();
+        List<Color> colorList = new List<Color>();
         foreach (BoxSlot slot in SlotsObserver.boxSlots)
         {
             if (slot.GetBoxOnTop())
@@ -74,8 +75,10 @@ public class RoomManager : MonoBehaviour
             {
                 numberList.Add("X");
             }
+
+            colorList.Add(slot.slotColor);
         }
 
-        GameManager.Instance.gameUIController.UpdateEquation(numberList, SlotsObserver.expectedResult.ToString());
+        GameManager.Instance.gameUIController.UpdateEquation(numberList, colorList, SlotsObserver.expectedResult.ToString());
     }
 }

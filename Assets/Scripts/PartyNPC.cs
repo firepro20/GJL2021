@@ -12,6 +12,7 @@ public class PartyNPC : MonoBehaviour
     {
         sprRenderer = GetComponent<SpriteRenderer>();
         sprRenderer.material.SetColor("_RedColorReplace", characterColorsDatabase.colors[(int)obtainablePower]);
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -21,7 +22,9 @@ public class PartyNPC : MonoBehaviour
             Player player = col.gameObject.GetComponent<Player>();
             Debug.Log("[PartyNPC] Power obtained: " + obtainablePower);
             GameManager.Instance.gameUIController.ShowDialogue("Power " + obtainablePower + " Obtained!");
+            player.UpdatePower(obtainablePower, true);
             Destroy(gameObject);
         }
     }
+
 }

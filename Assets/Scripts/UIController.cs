@@ -132,29 +132,6 @@ public class UIController : MonoBehaviour
         coinText.text = amount.ToString();
     }
 
-    /*
-    private void PopulatePartyImages()
-    {
-        for (int i = 0; i < partyMembersUI.Length; i++)
-        {
-            partyMembersUI[i] = partyMembersParent.transform.GetChild(i).GetComponent<Image>();
-        }
-    }
-    */
-
-    /*
-    private void PopulatePartyImages(Scene scene, LoadSceneMode mode)
-    {
-        if (!scene.name.Contains("Menu"))
-        {
-            for (int i = 0; i < partyMembersUI.Length; i++)
-            {
-                partyMembersUI[i] = partyMembersParent.transform.GetChild(i).GetComponent<Image>();
-            }
-        }
-    }
-    */
-
     public void UpdatePartyMembersUI(int[] discoveredPowers)
     {
         for (int i = 0; i < discoveredPowers.Length; i++)

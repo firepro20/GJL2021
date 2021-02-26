@@ -109,6 +109,11 @@ public class NumberBox : MonoBehaviour
         transform.position = newPos;
     }
 
+    public BoxSlot GetSlot()
+    {
+        return slot;
+    }
+
     public void SetSlot(BoxSlot slot)
     {
         this.slot = slot;

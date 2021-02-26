@@ -50,6 +50,9 @@ public class Player : MonoBehaviour
 
     // coins
     private int numOfCoins = 0;
+
+    // hold time
+    private float holdTime = 0;
     private void OnEnable()
     {
         OnPowerUpdated += UpdatePower;
@@ -87,6 +90,18 @@ public class Player : MonoBehaviour
         // Using Raw for unfiltered input, no smoothing applied
         movement.x = Mathf.Round(Input.GetAxisRaw("Horizontal"));
         movement.y = Mathf.Round(Input.GetAxisRaw("Vertical"));
+
+        if (movement != Vector3.zero && movement == oldMovement)
+        {
+            if (holdTime < 1f)
+            {
+                holdTime += Time.deltaTime;
+            }
+            else
+            {
+                movement = Vector3.zero;
+            }
+        }
 
         if (!isWalking && movement != oldMovement)
         {

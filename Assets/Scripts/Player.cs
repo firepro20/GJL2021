@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
         OnPowerUpdated?.Invoke(Power.ADD, true); // remove before release
         OnPowerUpdated?.Invoke(Power.RESET, true);
         OnPartyMembersUpdated?.Invoke(characterPowers);
+        UpdateColor();
     }
 
     // Update is called once per frame

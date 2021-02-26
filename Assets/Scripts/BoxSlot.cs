@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BoxSlot : MonoBehaviour
 {
+    public Color slotColor;
     private NumberBox boxOnTop;
-
+    private SpriteRenderer sprRenderer;
     private List<SlotsObserver> observers = new List<SlotsObserver>();
     void Start()
     {
-        
+        sprRenderer = GetComponent<SpriteRenderer>();
+        sprRenderer.material.SetColor("_RedColorReplace", slotColor);
     }
 
     // Update is called once per frame

@@ -77,12 +77,13 @@ public class UIController : MonoBehaviour
         equationSign.SetActive(true);
     }
 
-    public void UpdateEquation(List<string> numbers, string result)
+    public void UpdateEquation(List<string> numbers, List<Color> colors, string result)
     {
         for (int i = 0; i < numbers.Count; i++)
         {
             numberTexts[i].gameObject.SetActive(true);
             numberTexts[i].text = numbers[i];
+            numberTexts[i].color = colors[i];
         }
 
         for (int i = 0; i < numbers.Count - 1; i++)

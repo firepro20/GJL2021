@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                movement = Vector3.zero;
+                oldMovement = Vector3.zero;
                 holdTime = 0;
             }
         }

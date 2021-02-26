@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: fa1a0488adf0a1e43a52cdfe5b9a4966
+guid: 7d46ddb3d01fc484cba7bc28904ff04a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8353444154348433409
-    second: kinght_red_0
+      213: -6713571235620993989
+    second: knight_red_0
   - first:
-      213: 7241761009944042393
-    second: kinght_red_1
+      213: 106842224731064714
+    second: knight_red_1
   - first:
-      213: -4613664557828829968
-    second: kinght_red_2
+      213: -6015245025934679038
+    second: knight_red_2
   - first:
-      213: 6412217698311192759
-    second: kinght_red_3
+      213: -4543303248697744678
+    second: knight_red_3
   - first:
-      213: 8630263994171668031
-    second: kinght_red_4
+      213: 5448577512749151185
+    second: knight_red_4
   - first:
-      213: -3660290100819820524
-    second: kinght_red_5
+      213: 1226935872210086853
+    second: knight_red_5
   - first:
-      213: 8230839070693297497
-    second: kinght_red_6
+      213: -7457697263980648736
+    second: knight_red_6
   - first:
-      213: -5494210307579118792
-    second: kinght_red_7
+      213: -2627442875744559085
+    second: knight_red_7
   - first:
-      213: -3835586692979232559
-    second: kinght_red_8
+      213: 3250207772326040262
+    second: knight_red_8
   - first:
-      213: -4402542719515595731
-    second: kinght_red_9
+      213: -6990226581031462192
+    second: knight_red_9
   - first:
-      213: -7046652142407392527
-    second: kinght_red_10
+      213: -1581543609479940684
+    second: knight_red_10
   - first:
-      213: -9065496985665673649
-    second: kinght_red_11
+      213: 7824593696177348310
+    second: knight_red_11
   - first:
-      213: 6668907960415554304
-    second: kinght_red_12
+      213: -6571024318328765848
+    second: knight_red_12
   - first:
-      213: -712301751003930930
-    second: kinght_red_13
+      213: 1702409098651359821
+    second: knight_red_13
   - first:
-      213: -7704726059648125739
-    second: kinght_red_14
+      213: 3591394408503438475
+    second: knight_red_14
   - first:
-      213: 1205742819543507088
-    second: kinght_red_15
+      213: 6068808198199910227
+    second: knight_red_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -80,7 +80,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -94,11 +94,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -116,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kinght_red_0
+      name: knight_red_0
       rect:
         serializedVersion: 2
         x: 4
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fff8ff0dcca921c80800000000000000
-      internalID: -8353444154348433409
+      spriteID: b34c78ef78a94d2a0800000000000000
+      internalID: -6713571235620993989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_1
+      name: knight_red_1
       rect:
         serializedVersion: 2
         x: 39
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99b1df12547ef7460800000000000000
-      internalID: 7241761009944042393
+      spriteID: a898b14ff649b7100800000000000000
+      internalID: 106842224731064714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_2
+      name: knight_red_2
       rect:
         serializedVersion: 2
         x: 72
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fc8dc56788f8ffb0800000000000000
-      internalID: -4613664557828829968
+      spriteID: 2046a30e48e858ca0800000000000000
+      internalID: -6015245025934679038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_3
+      name: knight_red_3
       rect:
         serializedVersion: 2
         x: 105
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b0cf42f506ccf850800000000000000
-      internalID: 6412217698311192759
+      spriteID: ad22e7a44c1f2f0c0800000000000000
+      internalID: -4543303248697744678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_4
+      name: knight_red_4
       rect:
         serializedVersion: 2
         x: 4
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f36327aa06bd4c770800000000000000
-      internalID: 8630263994171668031
+      spriteID: 1d3389a416c3d9b40800000000000000
+      internalID: 5448577512749151185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_5
+      name: knight_red_5
       rect:
         serializedVersion: 2
         x: 39
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41081cddb89043dc0800000000000000
-      internalID: -3660290100819820524
+      spriteID: 5cb2449dca3f60110800000000000000
+      internalID: 1226935872210086853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_6
+      name: knight_red_6
       rect:
         serializedVersion: 2
         x: 72
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95d8414a680d93270800000000000000
-      internalID: 8230839070693297497
+      spriteID: 0e6e70ad9dfe08890800000000000000
+      internalID: -7457697263980648736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_7
+      name: knight_red_7
       rect:
         serializedVersion: 2
         x: 105
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83bf477b5d4a0c3b0800000000000000
-      internalID: -5494210307579118792
+      spriteID: 3106d9310a2798bd0800000000000000
+      internalID: -2627442875744559085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_8
+      name: knight_red_8
       rect:
         serializedVersion: 2
         x: 8
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d0f1cb793245cac0800000000000000
-      internalID: -3835586692979232559
+      spriteID: 6c215b3afbe0b1d20800000000000000
+      internalID: 3250207772326040262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_9
+      name: knight_red_9
       rect:
         serializedVersion: 2
         x: 36
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2c6ac6e8b607e2c0800000000000000
-      internalID: -4402542719515595731
+      spriteID: 0da502ad5f9bdfe90800000000000000
+      internalID: -6990226581031462192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_10
+      name: knight_red_10
       rect:
         serializedVersion: 2
         x: 76
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f2ef041633453e90800000000000000
-      internalID: -7046652142407392527
+      spriteID: 4b5b820777a3d0ae0800000000000000
+      internalID: -1581543609479940684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_11
+      name: knight_red_11
       rect:
         serializedVersion: 2
         x: 109
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f46e509c582e03280800000000000000
-      internalID: -9065496985665673649
+      spriteID: 6de596c928a869c60800000000000000
+      internalID: 7824593696177348310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_12
+      name: knight_red_12
       rect:
         serializedVersion: 2
         x: 2
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00b0854e478bc8c50800000000000000
-      internalID: 6668907960415554304
+      spriteID: 8628f8f72380fc4a0800000000000000
+      internalID: -6571024318328765848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_13
+      name: knight_red_13
       rect:
         serializedVersion: 2
         x: 37
@@ -426,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ece9586d4556d16f0800000000000000
-      internalID: -712301751003930930
+      spriteID: d4ad1833e0c20a710800000000000000
+      internalID: 1702409098651359821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_14
+      name: knight_red_14
       rect:
         serializedVersion: 2
         x: 70
@@ -447,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d47afa5870531590800000000000000
-      internalID: -7704726059648125739
+      spriteID: b8ceb2fbf2237d130800000000000000
+      internalID: 3591394408503438475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kinght_red_15
+      name: knight_red_15
       rect:
         serializedVersion: 2
         x: 105
@@ -468,8 +468,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0906e51c4b8abb010800000000000000
-      internalID: 1205742819543507088
+      spriteID: 35f1faff6ecb83450800000000000000
+      internalID: 6068808198199910227
       vertices: []
       indices: 
       edges: []

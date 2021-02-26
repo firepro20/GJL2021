@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
     public Transform spawnPoint;
     public float moveSpeed = 1.5f;
 
+    // Animation
+    public Animator animator;
+
     // Wall Tilemap
     public Tilemap wallObstacles;
 
@@ -41,9 +44,6 @@ public class Player : MonoBehaviour
     Power myPower;
     Vector3 boxPositionCheck;
     int powerIndex = 0;
-
-    // Snap Tile Correction
-    Vector2 tileOffset = new Vector2(0.5f, 0.5f);
 
     // character color
     public Color[] characterColors;
@@ -55,13 +55,7 @@ public class Player : MonoBehaviour
 
     // hold time
     private float holdTime = 0;
-    // private void OnEnable()
-    // {
-    //     OnPowerUpdated += UpdatePower;
-    //     OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
-    //     OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
-    // }
-    //
+    
     private void OnDisable()
     {
         OnPowerUpdated -= UpdatePower;
@@ -204,12 +198,18 @@ public class Player : MonoBehaviour
     IEnumerator Move(Vector3 newPos)
     { 
         isWalking = true;
+        //Debug.Log("Before X " + movement.x + " Y " + movement.y);
+        // Animate
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", 1);
         while ((newPos - transform.position).sqrMagnitude > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
-
+        //Debug.Log("After X " + movement.x + " Y " + movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
         transform.position = newPos;
         currentRoom?.UpdateEquation();
         isWalking = false;

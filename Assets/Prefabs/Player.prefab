@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 8552686819174185104}
   - component: {fileID: 8552686819174185105}
   - component: {fileID: 8552686819174185101}
+  - component: {fileID: 4434432689228433742}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -170,7 +171,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d2b26bd1d311d643a7693d5dd99f77a, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 686348119
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3297040257379849062, guid: a6ef84b0681739d43adc4fb5c036e261, type: 3}
+  m_Sprite: {fileID: -6713571235620993989, guid: 7d46ddb3d01fc484cba7bc28904ff04a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +220,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.96}
+    oldSize: {x: 0.8125, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   moveSpeed: 4
+  animator: {fileID: 4434432689228433742}
   wallObstacles: {fileID: 0}
   characterColors:
   - {r: 1, g: 1, b: 1, a: 0}
@@ -272,3 +274,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4434432689228433742
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552686819174185106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54e7afa0d72b64747953fd7a2ea27fa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

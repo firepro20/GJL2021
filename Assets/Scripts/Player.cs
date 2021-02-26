@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     int powerIndex = 0;
 
     // character color
-    public Color[] characterColors;
+    public ColorDatabase characterColorsDatabase;
     private SpriteRenderer sprRenderer;
     public RoomManager currentRoom;
 
@@ -314,7 +314,7 @@ public class Player : MonoBehaviour
 
     void UpdateColor()
     {
-        sprRenderer.material.SetColor("_RedColorReplace", characterColors[(int)myPower]);
+        sprRenderer.material.SetColor("_RedColorReplace", characterColorsDatabase.colors[(int)myPower]);
     }
 
     public int GetNumOfCoins()

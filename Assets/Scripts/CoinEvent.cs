@@ -28,7 +28,7 @@ public class CoinEvent : MonoBehaviour
         }
         else
         {
-            // TODO: show not enough coin prompt
+            GameManager.Instance.gameUIController.ShowDialogue("Not enough coin!");
         }
     }
 }

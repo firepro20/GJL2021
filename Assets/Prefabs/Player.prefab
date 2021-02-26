@@ -245,13 +245,7 @@ MonoBehaviour:
   moveSpeed: 4
   animator: {fileID: 4434432689228433742}
   wallObstacles: {fileID: 0}
-  characterColors:
-  - {r: 1, g: 1, b: 1, a: 0}
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.012160301, g: 0, b: 1, a: 0}
-  - {r: 0.09151816, g: 1, b: 0, a: 0}
-  - {r: 1, g: 0.9789965, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0.8769412, a: 0}
+  characterColorsDatabase: {fileID: 11400000, guid: 4dba9d23275bef14cb64317d4e019a30, type: 2}
   currentRoom: {fileID: 0}
 --- !u!50 &8552686819174185101
 Rigidbody2D:

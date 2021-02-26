@@ -32,6 +32,7 @@ public class UIController : MonoBehaviour
                 break;
         }
     }
+
     /// <summary>
     /// Update current power text
     /// </summary>

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     GameState gState;
 
     // Player unlocked abilities
-    int[] currentCharacterPowers;
+    int[] currentCharacterPowers = { 0, 0, 0, 0, 0, 0 };
 
     // Level Loading
     int levelIndex = 1;
@@ -111,6 +111,10 @@ public class GameManager : MonoBehaviour
         gameUIController = FindObjectOfType<UIController>();
 
         // Reapply saved powers across new level
-        player.SetAllowedPowers(currentCharacterPowers);
+        if (!s.name.Contains("Menu")) 
+        {
+            player.SetAllowedPowers(currentCharacterPowers);
+        }
+       
     }
 }

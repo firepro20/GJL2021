@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", 1);
-        while ((newPos - transform.position).sqrMagnitude > 0.01f)
+        while ((newPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
             yield return null;
@@ -247,8 +247,15 @@ public class Player : MonoBehaviour
                 }
                 break;
             case Power.ADD:
-                int currentValue = box.GetNumberValue();
-                box.SetNumberValue(currentValue + 3);
+                box.SetNumberValue(box.GetNumberValue() + 3);
+                currentRoom.UpdateEquation();
+                break;
+            case Power.MULTIPLY:
+                box.SetNumberValue(box.GetNumberValue() * 2);
+                currentRoom.UpdateEquation();
+                break;
+            case Power.POWER:
+                box.SetNumberValue((int)Mathf.Round(Mathf.Pow(box.GetNumberValue(), 2)));
                 currentRoom.UpdateEquation();
                 break;
             case Power.RESET:
@@ -294,6 +301,7 @@ public class Player : MonoBehaviour
     {
         int s = state ? 1 : 0;
         characterPowers[(int)p] = s;
+        OnPartyMembersUpdated?.Invoke(characterPowers);
     }
 
     public int[] GetAllowedPowers()

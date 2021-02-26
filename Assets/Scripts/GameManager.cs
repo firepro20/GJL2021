@@ -94,12 +94,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-
+        if (levelIndex < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(levelIndex);
+        // TODO: Reset party member and coin count
     }
 
     public void QuitToMainMenu()
     {
-
+        SceneManager.LoadScene("MainMenu");
     }
 
     public GameState GetGameState()
@@ -118,7 +120,7 @@ public class GameManager : MonoBehaviour
         if (additive) { mode = LoadSceneMode.Additive; } else { mode = LoadSceneMode.Single; }
         levelIndex++;
         if (levelIndex < SceneManager.sceneCountInBuildSettings)
-        SceneManager.LoadScene(levelIndex, mode);
+            SceneManager.LoadScene(levelIndex, mode);
 
         // Save player unlocked powers
         currentCharacterPowers = player.GetAllowedPowers();

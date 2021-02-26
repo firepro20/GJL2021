@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391638ea1f75fbf44bd2319ccf554c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotColor: {r: 0, g: 0, b: 0, a: 0}
+  slotColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!61 &7866890866625636155
 BoxCollider2D:
   m_ObjectHideFlags: 0

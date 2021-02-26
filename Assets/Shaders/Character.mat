@@ -48,7 +48,7 @@ Material:
     - Color_19328ebe82ec4a79830c831db358f0bf: {r: 0, g: 0.08155513, b: 1, a: 0}
     - Color_544794add69d4336ae9315d70ca11bf0: {r: 1, g: 1, b: 1, a: 1}
     - Color_be753149a8d946b5ba6d6d4874d0b41c: {r: 0, g: 0.66507936, b: 1, a: 1}
-    - _BlueColorReplace: {r: 1, g: 1, b: 1, a: 0}
-    - _GreenColorReplace: {r: 1, g: 1, b: 1, a: 0}
-    - _RedColorReplace: {r: 1, g: 1, b: 1, a: 0}
+    - _BlueColorReplace: {r: 0, g: 0, b: 1, a: 1}
+    - _GreenColorReplace: {r: 0, g: 1, b: 0, a: 0}
+    - _RedColorReplace: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

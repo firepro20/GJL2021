@@ -247,8 +247,15 @@ public class Player : MonoBehaviour
                 }
                 break;
             case Power.ADD:
-                int currentValue = box.GetNumberValue();
-                box.SetNumberValue(currentValue + 3);
+                box.SetNumberValue(box.GetNumberValue() + 3);
+                currentRoom.UpdateEquation();
+                break;
+            case Power.MULTIPLY:
+                box.SetNumberValue(box.GetNumberValue() * 2);
+                currentRoom.UpdateEquation();
+                break;
+            case Power.POWER:
+                box.SetNumberValue((int)Mathf.Round(Mathf.Pow(box.GetNumberValue(), 2)));
                 currentRoom.UpdateEquation();
                 break;
             case Power.RESET:

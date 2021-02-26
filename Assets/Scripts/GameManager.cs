@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         if (levelIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(levelIndex);
         // TODO: Reset party member and coin count
+        Unpause();
     }
 
     public void QuitToMainMenu()

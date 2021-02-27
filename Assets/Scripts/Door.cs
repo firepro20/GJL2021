@@ -22,9 +22,12 @@ public class Door : MonoBehaviour
 
     public void Unlock()
     {
+        if (!unlocked)
+        {
+            AudioController.Instance.DoorOpened();
+        }
         unlocked = true;
         sprRenderer.sprite = doorSprites[1];
-        AudioController.Instance.DoorOpened();
     }
 
     public void Lock()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
@@ -33,55 +34,85 @@ public class AudioController : MonoBehaviour
     public AudioClip boxOperated;
     public AudioClip boxPushed;
 
-    private AudioSource audSrc;
+    public AudioClip[] bgm;
 
-    private void Start()
-    {
-        audSrc = GetComponent<AudioSource>();
-    }
+    public AudioSource[] audSrc;
+
+    private bool soundEffectStatus = true;
+    private bool bgmStatus = true;
 
     public void MenuNavigated()
     {
-        audSrc.PlayOneShot(menuNavigate);
+        audSrc[0].PlayOneShot(menuNavigate);
     }
 
     public void MenuSelected()
     {
-        audSrc.PlayOneShot(menuSelected);
+        audSrc[0].PlayOneShot(menuSelected);
     }
 
     public void DoorOpened()
     {
-        audSrc.PlayOneShot(doorOpen);
+        audSrc[0].PlayOneShot(doorOpen);
     }
 
     public void CoinReceived()
     {
-        audSrc.PlayOneShot(coinReceived);
+        audSrc[0].PlayOneShot(coinReceived);
     }
 
     public void PartyJoined()
     {
-        audSrc.PlayOneShot(partyJoined);
+        audSrc[0].PlayOneShot(partyJoined);
     }
 
     public void PartySwitched()
     {
-        audSrc.PlayOneShot(partySwitched);
+        audSrc[0].PlayOneShot(partySwitched);
     }
 
     public void NextLevel()
     {
-        audSrc.PlayOneShot(nextLevel);
+        audSrc[0].PlayOneShot(nextLevel);
     }
 
     public void BoxOperated()
     {
-        audSrc.PlayOneShot(boxOperated);
+        audSrc[0].PlayOneShot(boxOperated);
     }
 
     public void BoxPushed()
     {
-        audSrc.PlayOneShot(boxPushed);
+        audSrc[0].PlayOneShot(boxPushed);
+    }
+
+    public void FadeToTrack(int trackIndex)
+    {
+        if (bgmStatus)
+        {
+            Sequence seq = DOTween.Sequence();
+            seq.Append(audSrc[1].DOFade(0f, 1f));
+            seq.AppendCallback(() =>
+            {
+                audSrc[1].Stop();
+                audSrc[1].clip = bgm[trackIndex];
+                audSrc[1].Play();
+            });
+            seq.Append(audSrc[1].DOFade(1f, 1f));
+        }
+    }
+
+    public bool ToggleBGM()
+    {
+        bgmStatus = !bgmStatus;
+        audSrc[1].volume = bgmStatus ? 1 : 0;
+        return bgmStatus;
+    }
+
+    public bool ToggleSFX()
+    {
+        soundEffectStatus = !soundEffectStatus;
+        audSrc[0].volume = soundEffectStatus ? 1 : 0; 
+        return soundEffectStatus;
     }
 }

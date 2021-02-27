@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -81,6 +82,12 @@ public class PauseMenuController : MonoBehaviour
                     GameManager.Instance.RestartLevel();
                     break;
                 case 2:
+                    menuItems[menuIndex].GetComponent<TMP_Text>().text = AudioController.Instance.ToggleSFX() ? "Sound Effect: On" : "Sound Effect: Off";
+                    break;
+                case 3:
+                    menuItems[menuIndex].GetComponent<TMP_Text>().text = AudioController.Instance.ToggleBGM() ? "Background Music: On" : "Background Music: Off";
+                    break;
+                case 4:
                     gameObject.SetActive(false);
                     GameManager.Instance.QuitToMainMenu();
                     break;

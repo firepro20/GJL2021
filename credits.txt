@@ -1,0 +1,32 @@
+2D Dungeon Pixel Art Tileset
+https://assetstore.unity.com/packages/2d/environments/2d-dungeon-pixel-art-tileset-171343
+
+Roguelike/RPG pack
+https://www.kenney.nl/assets/roguelike-rpg-pack
+
+Menu_Navigate_01.wav
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270321/
+
+Videogame Menu Select
+https://freesound.org/people/Fupicat/sounds/471937/
+
+coin05.mp3
+https://freesound.org/people/Taira%20Komori/sounds/213423/
+
+SFX-Success!.wav
+https://freesound.org/people/HenryRichard/sounds/448274/
+
+one_beep.wav
+https://freesound.org/people/gamer127/sounds/463202/
+
+Hit1.wav
+https://freesound.org/people/alphatrooper18/sounds/362422/
+
+8-bit Soft Hi-Hat
+https://freesound.org/people/JapanYoshiTheGamer/sounds/361267/
+
+8-Bit Hit
+https://freesound.org/people/TheDweebMan/sounds/277213/
+
+8-bit footsteps.wav
+https://freesound.org/people/EVRetro/sounds/501102/

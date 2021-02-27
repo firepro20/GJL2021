@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
                     }
                     else if (hit.collider.CompareTag("Coin"))
                     {
+                        AudioController.Instance.CoinReceived();
                         IncrementNumOfCoins();
                         Destroy(hit.collider.gameObject);
                         StartCoroutine(Move(moveToPosition));
@@ -226,7 +227,7 @@ public class Player : MonoBehaviour
                     powerIndex = 0;
                 }
             } while (characterPowers[powerIndex] != 1);
-
+            AudioController.Instance.PartySwitched();
             myPower = (Power)powerIndex;
             OnPowerUIUpdated?.Invoke(myPower);
             UpdateColor();

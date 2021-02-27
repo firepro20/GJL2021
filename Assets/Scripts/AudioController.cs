@@ -23,23 +23,65 @@ public class AudioController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public AudioClip backgroundMusic;
-    public AudioClip menuPositiveSFX;
-    public AudioClip menuNegativeSFX;
+    public AudioClip menuSelected;
+    public AudioClip menuNavigate;
+    public AudioClip doorOpen;
+    public AudioClip coinReceived;
+    public AudioClip partyJoined;
+    public AudioClip partySwitched;
+    public AudioClip nextLevel;
+    public AudioClip boxOperated;
+    public AudioClip boxPushed;
+
+    private AudioSource audSrc;
 
     private void Start()
     {
-        
+        audSrc = GetComponent<AudioSource>();
     }
-    // Start is called before the first frame update
-    private void OnEnable()
+
+    public void MenuNavigated()
     {
-        
+        audSrc.PlayOneShot(menuNavigate);
     }
 
-    public void PlayBackgroundMusic()
+    public void MenuSelected()
     {
-
+        audSrc.PlayOneShot(menuSelected);
     }
 
+    public void DoorOpened()
+    {
+        audSrc.PlayOneShot(doorOpen);
+    }
+
+    public void CoinReceived()
+    {
+        audSrc.PlayOneShot(coinReceived);
+    }
+
+    public void PartyJoined()
+    {
+        audSrc.PlayOneShot(partyJoined);
+    }
+
+    public void PartySwitched()
+    {
+        audSrc.PlayOneShot(partySwitched);
+    }
+
+    public void NextLevel()
+    {
+        audSrc.PlayOneShot(nextLevel);
+    }
+
+    public void BoxOperated()
+    {
+        audSrc.PlayOneShot(boxOperated);
+    }
+
+    public void BoxPushed()
+    {
+        audSrc.PlayOneShot(boxPushed);
+    }
 }

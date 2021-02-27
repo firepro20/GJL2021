@@ -47,6 +47,7 @@ public class UIController : MonoBehaviour
         switch (state)
         {
             case GameState.Playing:
+                AudioController.Instance.MenuNavigated();
                 pauseCanvas.SetActive(true);
                 break;
             case GameState.Paused:

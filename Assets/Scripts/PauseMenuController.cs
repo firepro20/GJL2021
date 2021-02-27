@@ -48,6 +48,7 @@ public class PauseMenuController : MonoBehaviour
                 // move up
                 if (menuIndex > 0)
                 {
+                    AudioController.Instance.MenuNavigated();
                     menuIndex--;
                     menuHightlight.DOAnchorPos(menuItems[menuIndex].anchoredPosition, 0.15f);
                 }
@@ -57,6 +58,7 @@ public class PauseMenuController : MonoBehaviour
                 // move down
                 if (menuIndex < menuItems.Length - 1)
                 {
+                    AudioController.Instance.MenuNavigated();
                     menuIndex++;
                     menuHightlight.DOAnchorPos(menuItems[menuIndex].anchoredPosition, 0.15f);
                 }
@@ -67,6 +69,7 @@ public class PauseMenuController : MonoBehaviour
 
         if (Input.GetButtonDown("Submit"))
         {
+            AudioController.Instance.MenuSelected();
             switch (menuIndex)
             {
                 case 0:
@@ -74,9 +77,11 @@ public class PauseMenuController : MonoBehaviour
                     GameManager.Instance.Unpause();
                     break;
                 case 1:
+                    gameObject.SetActive(false);
                     GameManager.Instance.RestartLevel();
                     break;
                 case 2:
+                    gameObject.SetActive(false);
                     GameManager.Instance.QuitToMainMenu();
                     break;
             }

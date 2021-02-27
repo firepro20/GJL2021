@@ -24,6 +24,7 @@ public class Door : MonoBehaviour
     {
         unlocked = true;
         sprRenderer.sprite = doorSprites[1];
+        AudioController.Instance.DoorOpened();
     }
 
     public void Lock()

@@ -51,6 +51,7 @@ public class NumberBox : MonoBehaviour
         operationsCount = 0;
         numberValue = initialNumberValue;
         slot?.TriggerCalculateResult();
+        AudioController.Instance.BoxOperated();
         UpdateUI();
     }
 
@@ -62,6 +63,7 @@ public class NumberBox : MonoBehaviour
             operationsCount++;
         }
         slot?.TriggerCalculateResult();
+        AudioController.Instance.BoxOperated();
         UpdateUI();
     }
 
@@ -93,12 +95,14 @@ public class NumberBox : MonoBehaviour
                 }
                 else
                 {
+                    AudioController.Instance.BoxPushed();
                     StartCoroutine(Move(moveToPosition));
                     return true;
                 }
             }
             else
             {
+                AudioController.Instance.BoxPushed();
                 StartCoroutine(Move(moveToPosition));
                 return true;
             }

@@ -6,6 +6,7 @@ public class ExitHole : MonoBehaviour
 {
     void OnTriggerEnter2D()
     {
+        AudioController.Instance.NextLevel();
         // load next level
         GameManager.Instance.LoadNextLevel(false);
     }

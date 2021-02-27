@@ -27,6 +27,7 @@ public class PartyNPC : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            AudioController.Instance.PartyJoined();
             Player player = col.gameObject.GetComponent<Player>();
             Debug.Log("[PartyNPC] Power obtained: " + obtainablePower);
             GameManager.Instance.gameUIController.ShowDialogue(obtainedDialogue[(int)obtainablePower]);

@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel(bool additive = false)
     {
         blackScreen.gameObject.SetActive(true);
+        // Save player unlocked powers
+        savedCharacterPowers = (int[])player.GetAllowedPowers().Clone();
         blackScreen.DOFade(1f, 1f).OnComplete(() =>
         {
             LoadSceneMode mode;
@@ -153,9 +155,6 @@ public class GameManager : MonoBehaviour
             levelIndex++;
             if (levelIndex < SceneManager.sceneCountInBuildSettings)
                 SceneManager.LoadScene(levelIndex, mode);
-
-            // Save player unlocked powers
-            savedCharacterPowers = (int[]) player.GetAllowedPowers().Clone();
         });
     }
 

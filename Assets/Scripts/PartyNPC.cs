@@ -21,7 +21,6 @@ public class PartyNPC : MonoBehaviour
     {
         sprRenderer = GetComponent<SpriteRenderer>();
         sprRenderer.material.SetColor("_RedColorReplace", characterColorsDatabase.colors[(int)obtainablePower]);
-
     }
 
     void OnTriggerEnter2D(Collider2D col)

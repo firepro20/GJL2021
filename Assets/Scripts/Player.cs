@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
         OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
 
         OnPowerUpdated?.Invoke(Power.MOVE, true);
+        characterPowers = GameManager.Instance.LoadCurrentPowers();
         OnPartyMembersUpdated?.Invoke(characterPowers);
         UpdateColor();
     }

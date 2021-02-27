@@ -77,10 +77,10 @@ public class GameManager : MonoBehaviour
         {
             Unpause();
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             LoadNextLevel();
-        }
+        }*/
     }
 
     public void Pause()

@@ -27,6 +27,8 @@ public class MainMenuController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         Cursor.visible = false;
+
+        AudioController.Instance.FadeToTrack(0);
     }
 
     void Update()

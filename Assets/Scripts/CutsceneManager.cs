@@ -41,6 +41,7 @@ public class CutsceneManager : MonoBehaviour
                     blackScreen.DOFade(1f, 1f).OnComplete(() =>
                     {
                         SceneManager.LoadScene(2);
+                        AudioController.Instance.FadeToTrack(1);
                     });
                 }
                 else

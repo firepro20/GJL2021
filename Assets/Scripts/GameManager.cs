@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
             levelIndex++;
             if (levelIndex < SceneManager.sceneCountInBuildSettings)
                 SceneManager.LoadScene(levelIndex, mode);
+            AudioController.Instance.FadeToTrack(levelIndex - 1);
         });
     }
 

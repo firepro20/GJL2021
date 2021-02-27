@@ -1315,7 +1315,12 @@ MonoBehaviour:
   nextLevel: {fileID: 8300000, guid: a27b81769c379cc4c8062435c0baad56, type: 3}
   boxOperated: {fileID: 8300000, guid: 76675288a986c8b49a386f559a3da7e8, type: 3}
   boxPushed: {fileID: 8300000, guid: 897c74fcb42dd724cae48fc59d27ca6c, type: 3}
-  bgm: []
+  bgm:
+  - {fileID: 8300000, guid: 194540b5c2693e64a95157d3e20dbe6c, type: 3}
+  - {fileID: 8300000, guid: 5477c5181755b6145935743d18f686b3, type: 3}
+  - {fileID: 8300000, guid: d207e27215564684dbb0eff3e492e501, type: 3}
+  - {fileID: 8300000, guid: 48f59e18853f8c8428e15d287d9829e0, type: 3}
+  - {fileID: 8300000, guid: 0a5a1646c3a891245a11fe6ab6c0e0d2, type: 3}
   audSrc:
   - {fileID: 1899140128}
   - {fileID: 438224}

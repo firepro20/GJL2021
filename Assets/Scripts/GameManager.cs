@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
     GameState gState;
 
     // Player unlocked abilities
-    int[] currentCharacterPowers = { 0, 0, 0, 0, 0, 0 };
-    int[] levelStartPowers = { 0, 0, 0, 0, 0, 0 };
+    int[] savedCharacterPowers = { 0, 0, 0, 0, 0, 0 };
 
     // Level Loading
     int levelIndex = 1;
@@ -116,10 +115,9 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
             // Reset party member and coin count
-            for (int i = 0; i < currentCharacterPowers.Length; i++)
+            for (int i = 0; i < savedCharacterPowers.Length; i++)
             {
-                currentCharacterPowers[i] = 0;
-                levelStartPowers[i] = 0;
+                savedCharacterPowers[i] = 0;
             }
             levelIndex = 1;
             Unpause();
@@ -157,7 +155,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(levelIndex, mode);
 
             // Save player unlocked powers
-            levelStartPowers = (int[]) player.GetAllowedPowers().Clone();
+            savedCharacterPowers = (int[]) player.GetAllowedPowers().Clone();
         });
     }
 
@@ -173,39 +171,12 @@ public class GameManager : MonoBehaviour
             OnPauseCalled = null;
             OnPauseCalled += gameUIController.ShowPauseMenu;
 
-            if (isRestarting)
-            {
-                player.SetAllowedPowers(levelStartPowers);
-                isRestarting = false;
-            }
-            else
-            {
-                player.SetAllowedPowers(currentCharacterPowers);
-            }
+            // set party members back
+            player.SetAllowedPowers(savedCharacterPowers);
             gameUIController.UpdatePartyMembersUI(player.GetAllowedPowers());
         }
 
         FadeOut();
-    }
-
-    public void SetLevelStartPowers(int[] startPowers)
-    {
-        levelStartPowers = startPowers;
-    }
-
-    public int[] LoadLevelStartPowers()
-    {
-        return levelStartPowers;
-    }
-
-    public void SaveCurrentPowers(int[] currentPowers)
-    {
-        currentCharacterPowers = currentPowers;
-    }
-
-    public int[] LoadCurrentPowers()
-    {
-        return currentCharacterPowers;
     }
 
     public void FadeOut()

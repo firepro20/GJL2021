@@ -63,11 +63,6 @@ public class Player : MonoBehaviour
         OnPartyMembersUpdated -= GameManager.Instance.gameUIController.UpdatePartyMembersUI;
     }
 
-    private void OnDestroy()
-    {
-        GameManager.Instance.SaveCurrentPowers(characterPowers);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -78,10 +73,7 @@ public class Player : MonoBehaviour
         OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
         OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
 
-        //GameManager.Instance.SetLevelStartPowers(characterPowers);
         OnPowerUpdated?.Invoke(Power.MOVE, true);
-        //OnPartyMembersUpdated?.Invoke(characterPowers);
-        //characterPowers = GameManager.Instance.LoadCurrentPowers();
         UpdateColor();
         
     }
@@ -319,11 +311,6 @@ public class Player : MonoBehaviour
     public void SetAllowedPowers(int[] cp)
     {
         characterPowers = (int[]) cp.Clone();
-    }
-
-    public Power GetCurrentPower()
-    {
-        return myPower;
     }
 
     void UpdateColor()

@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
             levelStartPowers[i] = 0;
         }
         gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
+        levelIndex = 1;
         Unpause();
     }
 

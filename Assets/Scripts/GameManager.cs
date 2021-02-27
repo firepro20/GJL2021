@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
 
     // Level Loading
     int levelIndex = 1;
-    bool isRestarting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +97,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        isRestarting = true;
         blackScreen.gameObject.SetActive(true);
         blackScreen.DOFade(1f, 1f).OnComplete(() =>
         {

@@ -2030,7 +2030,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: A quick brown fox jumps over the lazy dog. Lorem ipsum dolor, consectetur
-    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna sed
+    do eiusmod tempor incididunt ut labore et dolore
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 892bc25634353ae41b12402da6664cf6, type: 2}
   m_sharedMaterial: {fileID: -2311838310832713487, guid: 892bc25634353ae41b12402da6664cf6, type: 2}
@@ -2287,7 +2288,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 220}
+  m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6482672901115762604
 CanvasRenderer:

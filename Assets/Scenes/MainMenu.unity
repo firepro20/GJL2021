@@ -1240,6 +1240,7 @@ MonoBehaviour:
   nextLevel: {fileID: 8300000, guid: a27b81769c379cc4c8062435c0baad56, type: 3}
   boxOperated: {fileID: 8300000, guid: 76675288a986c8b49a386f559a3da7e8, type: 3}
   boxPushed: {fileID: 8300000, guid: 897c74fcb42dd724cae48fc59d27ca6c, type: 3}
+  bgm: []
   audSrc:
   - {fileID: 1899140128}
   - {fileID: 438224}

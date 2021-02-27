@@ -108,7 +108,7 @@ public class MainMenuController : MonoBehaviour
     IEnumerator loadMainLevel()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("Intro");
     }
 
     public void Exit()

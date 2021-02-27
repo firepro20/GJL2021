@@ -161,5 +161,6 @@ public class UIController : MonoBehaviour
         dialogueShowing = false;
         dialogueBox.SetActive(false);
         GameManager.Instance.SetGameState(GameState.Playing);
+        AudioController.Instance.MenuNavigated();
     }
 }

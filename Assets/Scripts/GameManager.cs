@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     int[] savedCharacterPowers = { 0, 0, 0, 0, 0, 0 };
 
     // Level Loading
-    int levelIndex = 1;
+    int levelIndex = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             {
                 savedCharacterPowers[i] = 0;
             }
-            levelIndex = 1;
+            levelIndex = 2;
             Unpause();
         });
     }

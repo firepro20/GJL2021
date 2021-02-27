@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         gameUIController = FindObjectOfType<UIController>();
 
         // Reapply saved powers across new level
-        if (!s.name.Contains("Menu"))
+        if (s.name.Contains("Level"))
         {
             OnPauseCalled = null;
             OnPauseCalled += gameUIController.ShowPauseMenu;

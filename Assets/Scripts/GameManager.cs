@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= ActiveSceneLoaded;
-        OnPauseCalled -= gameUIController.ShowPauseMenu;
+        //OnPauseCalled -= gameUIController.ShowPauseMenu;
     }
 
     // Update is called once per frame
@@ -119,7 +119,6 @@ public class GameManager : MonoBehaviour
             }
             levelIndex = 1;
             Unpause();
-            Destroy(gameObject);
         });
     }
 

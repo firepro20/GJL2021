@@ -20,6 +20,11 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.Instance)
+        {
+            Destroy(GameManager.Instance.gameObject);
+        }
+
         animator = GetComponent<Animator>();
         Cursor.visible = false;
     }

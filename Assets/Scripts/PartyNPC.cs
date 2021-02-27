@@ -11,11 +11,11 @@ public class PartyNPC : MonoBehaviour
     private string[] obtainedDialogue =
     {
         "MOVE",
-        "\"There's never two without three!\"\nSumboi has joined your party! This lad can ADD + 3 to the boxes.",
-        "\"How did I end up here? I can’t remember… But I can help you escape.\"\nMull T. Plyer has joined your party! This man can MULTIPLY x2.",
-        "\"Looks like we can help each other… I’m Powermann. Nice to meet ya\"\nPowermann has joined your party! This dude can SQUARE the box numbers!",
+        "SIR TROIS: \"There's never two without three!\"\n Sir Trois has joined your party! This lad can ADD + 3 to the boxes.",
+        "DON CINCO: \"Boo-yah! I'm free! Give me five!\"\n Don Cinco has joined your party! This man can ADD +5 to the boxes.",
+        "SYV: \"You want me to join you? Sure. Just don't get in my way.\"\n Syv has joined your party! This dude can ADD +7 to the boxes.",
         "DIVISION",
-        "\"Hey… are you stuck here, too? Wanna join forces?\"\nRay Seth has joined your party! This guy can RESET the value on the boxes. Press SPACE to switch party members!"
+        "RAY SETH: \"Hey… are you stuck here, too? Wanna join forces?\"\n Ray Seth has joined your party! This guy can RESET the value on the boxes. Press SPACE to switch party members!"
     };
     void Start()
     {

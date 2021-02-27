@@ -69,17 +69,17 @@ public class UIController : MonoBehaviour
             case Power.MOVE:
                 currentPower = "MOVE";
                 break;
-            case Power.ADD:
+            case Power.ADD3:
                 currentPower = "ADD (+3)";
                 break;
-            case Power.MULTIPLY:
-                currentPower = "MULTIPLY (*2)";
+            case Power.ADD5:
+                currentPower = "ADD (+5)";
                 break;
-            case Power.POWER:
-                currentPower = "POWER (^2)";
+            case Power.ADD7:
+                currentPower = "ADD (+7)";
                 break;
-            case Power.DIVIDE:
-                currentPower = "DIVIDE";
+            case Power.ADD11:
+                currentPower = "ADD (+11)";
                 break;
             case Power.RESET:
                 currentPower = "RESET";

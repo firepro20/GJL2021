@@ -7,10 +7,10 @@ using UnityEngine.Tilemaps;
 public enum Power
 {
     MOVE,
-    ADD, // +3
-    MULTIPLY, // x2 
-    POWER, // ^2
-    DIVIDE, // /4
+    ADD3, // +3
+    ADD5, // +5 
+    ADD7, // +7
+    ADD11, // +11
     RESET
 }
 
@@ -245,16 +245,16 @@ public class Player : MonoBehaviour
                     StartCoroutine(Move(moveToPosition));
                 }
                 break;
-            case Power.ADD:
+            case Power.ADD3:
                 box.SetNumberValue(box.GetNumberValue() + 3);
                 currentRoom.UpdateEquation();
                 break;
-            case Power.MULTIPLY:
-                box.SetNumberValue(box.GetNumberValue() * 2);
+            case Power.ADD5:
+                box.SetNumberValue(box.GetNumberValue() +5);
                 currentRoom.UpdateEquation();
                 break;
-            case Power.POWER:
-                box.SetNumberValue((int)Mathf.Round(Mathf.Pow(box.GetNumberValue(), 2)));
+            case Power.ADD7:
+                box.SetNumberValue(box.GetNumberValue() + 7);
                 currentRoom.UpdateEquation();
                 break;
             case Power.RESET:

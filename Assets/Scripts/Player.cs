@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
         OnPartyMembersUpdated -= GameManager.Instance.gameUIController.UpdatePartyMembersUI;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.SaveCurrentPowers(characterPowers);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -341,4 +346,6 @@ public class Player : MonoBehaviour
             numOfCoins = 0;
         }
     }
+
+
 }

@@ -7,6 +7,6 @@ public class ExitHole : MonoBehaviour
     void OnTriggerEnter2D()
     {
         // load next level
-        GameManager.Instance.LoadLevel(false);
+        GameManager.Instance.LoadNextLevel(false);
     }
 }

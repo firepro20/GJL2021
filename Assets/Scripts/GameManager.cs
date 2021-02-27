@@ -36,9 +36,11 @@ public class GameManager : MonoBehaviour
 
     // Player unlocked abilities
     int[] currentCharacterPowers = { 0, 0, 0, 0, 0, 0 };
+    int[] levelStartPowers = { 0, 0, 0, 0, 0, 0 };
 
     // Level Loading
     int levelIndex = 1;
+    bool isRestarting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            LoadLevel();
+            LoadNextLevel();
         }
     }
 
@@ -96,18 +98,20 @@ public class GameManager : MonoBehaviour
     {
         if (levelIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(levelIndex);
-        
-        // Reset party member and coin count
-        player.SetAllowedPowers(currentCharacterPowers);
-        gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
+
+        isRestarting = true;
         Unpause();
     }
 
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadScene("MainMenu");
         // Reset party member and coin count
-        player.SetAllowedPowers(currentCharacterPowers);
+        for (int i = 0; i < currentCharacterPowers.Length; i++)
+        {
+            currentCharacterPowers[i] = 0;
+            levelStartPowers[i] = 0;
+        }
         gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
         Unpause();
     }
@@ -122,7 +126,7 @@ public class GameManager : MonoBehaviour
         gState = g;
     }
 
-    public void LoadLevel(bool additive = false)
+    public void LoadNextLevel(bool additive = false)
     {
         LoadSceneMode mode;
         if (additive) { mode = LoadSceneMode.Additive; } else { mode = LoadSceneMode.Single; }
@@ -131,7 +135,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(levelIndex, mode);
 
         // Save player unlocked powers
-        currentCharacterPowers = player.GetAllowedPowers();
+        levelStartPowers = player.GetAllowedPowers();
     }
 
     private void ActiveSceneLoaded(Scene s, LoadSceneMode mode)
@@ -143,10 +147,34 @@ public class GameManager : MonoBehaviour
         OnPauseCalled = null;
         OnPauseCalled += gameUIController.ShowPauseMenu;
         // Reapply saved powers across new level
-        if (!s.name.Contains("Menu")) 
+        if (!s.name.Contains("Menu") && isRestarting) 
+        {
+            
+            player.SetAllowedPowers(levelStartPowers);
+            gameUIController.UpdatePartyMembersUI(levelStartPowers);
+            isRestarting = false;
+            
+        }
+        else
         {
             player.SetAllowedPowers(currentCharacterPowers);
+            gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
         }
-       
+
+    }
+
+    public void SetLevelStartPowers(int[] startPowers)
+    {
+        levelStartPowers = startPowers;
+    }
+
+    public void SaveCurrentPowers(int[] currentPowers)
+    {
+        currentCharacterPowers = currentPowers;
+    }
+
+    public int[] LoadCurrentPowers()
+    {
+        return currentCharacterPowers;
     }
 }

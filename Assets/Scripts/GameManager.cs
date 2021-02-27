@@ -169,6 +169,11 @@ public class GameManager : MonoBehaviour
         levelStartPowers = startPowers;
     }
 
+    public int[] LoadLevelStartPowers()
+    {
+        return levelStartPowers;
+    }
+
     public void SaveCurrentPowers(int[] currentPowers)
     {
         currentCharacterPowers = currentPowers;

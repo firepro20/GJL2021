@@ -78,10 +78,12 @@ public class Player : MonoBehaviour
         OnPowerUIUpdated += GameManager.Instance.gameUIController.UpdateCurrentPower;
         OnPartyMembersUpdated += GameManager.Instance.gameUIController.UpdatePartyMembersUI;
 
+        GameManager.Instance.SetLevelStartPowers(characterPowers);
         OnPowerUpdated?.Invoke(Power.MOVE, true);
+        //OnPartyMembersUpdated?.Invoke(characterPowers);
         characterPowers = GameManager.Instance.LoadCurrentPowers();
-        OnPartyMembersUpdated?.Invoke(characterPowers);
         UpdateColor();
+        
     }
 
     // Update is called once per frame

@@ -318,7 +318,7 @@ public class Player : MonoBehaviour
 
     public void SetAllowedPowers(int[] cp)
     {
-        characterPowers = cp;
+        characterPowers = (int[]) cp.Clone();
     }
 
     public Power GetCurrentPower()

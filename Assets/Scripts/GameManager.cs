@@ -99,13 +99,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        isRestarting = true;
         blackScreen.gameObject.SetActive(true);
         blackScreen.DOFade(1f, 1f).OnComplete(() =>
         {
             if (levelIndex < SceneManager.sceneCountInBuildSettings)
                 SceneManager.LoadScene(levelIndex);
-
-            isRestarting = true;
             Unpause();
         });
     }
@@ -122,7 +121,6 @@ public class GameManager : MonoBehaviour
                 currentCharacterPowers[i] = 0;
                 levelStartPowers[i] = 0;
             }
-            gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
             levelIndex = 1;
             Unpause();
             Destroy(gameObject);
@@ -159,7 +157,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(levelIndex, mode);
 
             // Save player unlocked powers
-            levelStartPowers = player.GetAllowedPowers();
+            levelStartPowers = (int[]) player.GetAllowedPowers().Clone();
         });
     }
 
@@ -178,14 +176,13 @@ public class GameManager : MonoBehaviour
             if (isRestarting)
             {
                 player.SetAllowedPowers(levelStartPowers);
-                gameUIController.UpdatePartyMembersUI(levelStartPowers);
                 isRestarting = false;
             }
             else
             {
                 player.SetAllowedPowers(currentCharacterPowers);
-                gameUIController.UpdatePartyMembersUI(currentCharacterPowers);
             }
+            gameUIController.UpdatePartyMembersUI(player.GetAllowedPowers());
         }
 
         FadeOut();

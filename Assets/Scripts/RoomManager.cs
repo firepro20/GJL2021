@@ -73,7 +73,7 @@ public class RoomManager : MonoBehaviour
             }
             else
             {
-                numberList.Add("X");
+                numberList.Add("_");
             }
 
             colorList.Add(slot.slotColor);

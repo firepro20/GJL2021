@@ -939,10 +939,12 @@ MonoBehaviour:
     Ridam Rahman
 
 
-    <size=50><b>2D
-    Artist</b></size>
+    <size=50><b>Additional
+    Art</b></size>
 
-    Luca Pisani'
+    Character Sprite: Luca Pisani
+
+    Game Logo: Justin Farrugia'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 892bc25634353ae41b12402da6664cf6, type: 2}
   m_sharedMaterial: {fileID: -2311838310832713487, guid: 892bc25634353ae41b12402da6664cf6, type: 2}

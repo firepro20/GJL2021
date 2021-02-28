@@ -98,7 +98,7 @@ public class AudioController : MonoBehaviour
                 audSrc[1].clip = bgm[trackIndex];
                 audSrc[1].Play();
             });
-            seq.Append(audSrc[1].DOFade(1f, 1f));
+            seq.Append(audSrc[1].DOFade(0.8f, 1f));
         }
     }
 

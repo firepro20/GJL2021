@@ -38,10 +38,10 @@ public class CutsceneManager : MonoBehaviour
                 isTransitioning = true;
                 if (isIntro)
                 {
+                    AudioController.Instance.FadeToTrack(1);
                     blackScreen.DOFade(1f, 1f).OnComplete(() =>
                     {
                         SceneManager.LoadScene(2);
-                        AudioController.Instance.FadeToTrack(1);
                     });
                 }
                 else

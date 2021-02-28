@@ -921,12 +921,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><size=100>Team CableTripper</size></b>\n<size=50><b>Game Design & Programming</b></size>\nRidam
-    Rahman\nThanik Sitthichoksakulchai\nDaniel Zammit\n\n<size=50><b>Storyboard</b></size>\nRidam
-    Rahman\n\n<size=50><b>2D Artist</b></size>\nLuca Pisani\n\n<size=50><b>Music</b></size>\nRandom
-    Mind - [Chiptune] Medieval: The Bard's Tale \nRandom Mind - [Chiptune] Medieval:
-    Minstrel Dance \nTechnoAxe - Dungeon_in_a_Gamebox\r\nTechnoAxe -  Eight_Bit_Dungeon_Monster_Stomp\r\nKevin
-    MacLeod - 8bit Dungeon Level\r\n"
+  m_text: '<b><size=100>Team CableTripper</size></b>
+
+    <size=50><b>Game Design
+    & Programming</b></size>
+
+    Ridam Rahman
+
+    Thanik Sitthichoksakulchai
+
+    Daniel
+    Zammit
+
+
+    <size=50><b>Storyboard</b></size>
+
+    Ridam Rahman
+
+
+    <size=50><b>2D
+    Artist</b></size>
+
+    Luca Pisani'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 892bc25634353ae41b12402da6664cf6, type: 2}
   m_sharedMaterial: {fileID: -2311838310832713487, guid: 892bc25634353ae41b12402da6664cf6, type: 2}

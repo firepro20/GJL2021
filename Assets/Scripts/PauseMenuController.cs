@@ -14,11 +14,12 @@ public class PauseMenuController : MonoBehaviour
     private float movement;
     private float oldMovement;
     private float holdTime = 0;
-    void Start()
-    {
-        
-    }
 
+    void OnEnable()
+    {
+        menuItems[2].GetComponent<TMP_Text>().text = AudioController.Instance.GetSFXStatus() ? "Sound Effect: On" : "Sound Effect: Off";
+        menuItems[3].GetComponent<TMP_Text>().text = AudioController.Instance.GetBGMStatus() ? "Background Music: On" : "Background Music: Off";
+    }
     // Update is called once per frame
     void Update()
     {

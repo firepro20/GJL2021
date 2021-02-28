@@ -115,4 +115,14 @@ public class AudioController : MonoBehaviour
         audSrc[0].volume = soundEffectStatus ? 1 : 0; 
         return soundEffectStatus;
     }
+
+    public bool GetBGMStatus()
+    {
+        return bgmStatus;
+    }
+
+    public bool GetSFXStatus()
+    {
+        return soundEffectStatus;
+    }
 }

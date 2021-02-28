@@ -49,7 +49,7 @@ public class CutsceneManager : MonoBehaviour
                     // run credit
                     Sequence newSequence = DOTween.Sequence();
                     newSequence.Append(blackScreen.DOFade(1f, 1f));
-                    newSequence.Append(creditText.DOAnchorPosY(750f, 15f).SetEase(Ease.Linear));
+                    newSequence.Append(creditText.DOAnchorPosY(1400f, 15f).SetEase(Ease.Linear));
                     newSequence.AppendCallback(GameManager.Instance.QuitToMainMenu);
                 }
             }

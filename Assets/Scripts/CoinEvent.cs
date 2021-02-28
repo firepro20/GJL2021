@@ -25,10 +25,11 @@ public class CoinEvent : MonoBehaviour
         {
             paidEvent.Invoke();
             player.RemoveNumOfCoins(coinAmount);
+            //GameManager.Instance.gameUIController.ShowDialogue(coinAmount + " coin(s) used for unlocking door.");
         }
         else
         {
-            GameManager.Instance.gameUIController.ShowDialogue("Not enough coin!");
+            GameManager.Instance.gameUIController.ShowDialogue("Not enough coin! Need " + coinAmount + " coin(s) to unlock.");
         }
     }
 }

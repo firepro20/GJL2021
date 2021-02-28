@@ -801,9 +801,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"You may be good at swinging swords, but I bet\u2026 you\u2019re too
-    dumb to be able to solve my EXTREMELY CLEVER mathematical conundrums! After all\u2026
-    you can\u2019t be all brawns and have brains, too, right?\r\""
+  m_text: "You may be good at swinging swords, but I bet\u2026 you\u2019re too dumb
+    to be able to solve my EXTREMELY CLEVER mathematical conundrums! After all\u2026
+    you can\u2019t be all brawns and have brains, too, right?\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 892bc25634353ae41b12402da6664cf6, type: 2}
   m_sharedMaterial: {fileID: -2311838310832713487, guid: 892bc25634353ae41b12402da6664cf6, type: 2}

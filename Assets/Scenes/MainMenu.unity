@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   doorOpen: {fileID: 8300000, guid: 69a5a99bfd2af74419071605640a2992, type: 3}
   coinReceived: {fileID: 8300000, guid: 0c7042d354b9c4c488fbc3793265d019, type: 3}
   partyJoined: {fileID: 8300000, guid: a4b0e425d02bca444bef0405db455660, type: 3}
-  partySwitched: {fileID: 8300000, guid: 590886c029e5ab24ba48b6a37e3c0e38, type: 3}
+  partySwitched: {fileID: 8300000, guid: 1fc0e2b1a9787fb4098968107a495a41, type: 3}
   nextLevel: {fileID: 8300000, guid: a27b81769c379cc4c8062435c0baad56, type: 3}
   boxOperated: {fileID: 8300000, guid: 76675288a986c8b49a386f559a3da7e8, type: 3}
   boxPushed: {fileID: 8300000, guid: 897c74fcb42dd724cae48fc59d27ca6c, type: 3}
